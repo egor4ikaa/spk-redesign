@@ -1,0 +1,290 @@
+<<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотогалерея СПК "Восход"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="image/orig.jpeg" type="image/jpeg">
+    <link rel="stylesheet" href="album.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo-and-theme">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    СПК "ВОСХОД"
+                </a>
+                <button class="theme-toggle" id="themeToggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="gallery-main">
+        <div class="container">
+            <header class="gallery-header">
+                <h1>Альбом СПК "Восход"</h1>
+                <p class="subtitle">Фотогалерея нашего сельскохозяйственного предприятия</p>
+            </header>
+
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="work">Работа</button>
+                <button class="filter-btn" data-category="building">Здания</button>
+                <button class="filter-btn" data-category="staff">Персонал</button>
+                <button class="filter-btn" data-category="equipment">Оборудование</button>
+                <button class="filter-btn" data-category="animals">Животные</button>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Фото добавляются через JS -->
+                </div>
+                <button class="load-more" id="loadMore">Загрузить еще</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="imageModal">
+        <span class="close-btn">&times;</span>
+        <span class="nav-btn prev-btn"><</span>
+        <span class="nav-btn next-btn">></span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDate"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 СПК "Восход". Все права защищены.</p>
+    </footer>
+
+    <!-- Логика переключения темы -->
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Загрузка сохранённой темы
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Переключение темы
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeIcon.classList.toggle('fa-moon', !isDark);
+            themeIcon.classList.toggle('fa-sun', isDark);
+        });
+    </script>
+
+    <script>
+        // Данные фотографий (в реальном проекте можно загружать с сервера)
+        const photos = [
+                    { id: 1, src: 'image/rabota.jpg', title: 'Современная техника', category: 'work' },
+                    { id: 2, src: 'image/ferma.jpg', title: 'Коровники', category: 'building' },
+                    { id: 3, src: 'image/rabota-2.jpg', title: 'Работа в поле', category: 'work' },
+                    { id: 4, src: 'image/rabota-3.jpg', title: 'Сельхозтехника', category: 'work' },
+                    { id: 5, src: 'image/rabota-4.jpg', title: 'Уборочная кампания', category: 'work' },
+                    { id: 6, src: 'image/zdanie.jpg', title: 'Ферма СПК "Восход"', category: 'building' },
+                    { id: 7, src: 'image/milk_apparat.jpg', title: 'Молочное оборудование', category: 'equipment' },
+                    { id: 8, src: 'image/vladelec.jpg', title: 'Председатель Клековкин В.И.', category: 'staff' },
+                    { id: 9, src: 'image/personal-2.jpg', title: 'Работники фермы', category: 'staff' },
+                    { id: 10, src: 'image/personal-3.jpg', title: 'Специалисты', category: 'staff' },
+                    { id: 11, src: 'image/1 ferma.jpg', title: '', category: 'animals' },
+                    { id: 12, src: 'image/6 ferma.jpg', title: '', category: 'animals' },
+                    { id: 13, src: 'image/13 ferma.jpg', title: '', category: 'animals' },
+                    { id: 14, src: 'image/15 ferma.jpg', title: '', category: 'animals' },
+                    { id: 15, src: 'image/17 ferma.jpg', title: '', category: 'animals' },
+                    { id: 16, src: 'image/26 ferma.jpg', title: '', category: 'animals' },
+                    { id: 17, src: 'image/28 ferma.jpg', title: '', category: 'animals' },
+                    { id: 18, src: 'image/38 ferma.jpg', title: '', category: 'animals' },
+                    { id: 19, src: 'image/40 ferma.jpg', title: '', category: 'animals' },
+                    { id: 20, src: 'image/42 ferma.jpg', title: '', category: 'animals' },
+                    { id: 21, src: 'image/50 ferma.jpg', title: '', category: 'animals' },
+                    { id: 22, src: 'image/51 ferma.jpg', title: '', category: 'animals' },
+                    { id: 23, src: 'image/46 ferma.jpg', title: '', category: 'animals' },
+                    { id: 24, src: 'image/66 ferma.jpg', title: '', category: 'animals' },
+                    { id: 25, src: 'image/72 ferma.jpg', title: '', category: 'animals' },
+                    { id: 26, src: 'image/82 ferma.jpg', title: '', category: 'animals' },
+                    { id: 27, src: 'image/14 ferma.jpg', title: 'Заготовка силоса', category: 'work' },
+                    { id: 28, src: 'image/21 ferma.jpg', title: '', category: 'work' },
+                    { id: 29, src: 'image/2 ferma.jpg', title: '', category: 'building' },
+                    { id: 30, src: 'image/4 ferma.jpg', title: '', category: 'building' },
+                    { id: 31, src: 'image/5 ferma.jpg', title: '', category: 'building' },
+                    { id: 32, src: 'image/9 ferma.jpg', title: '', category: 'building' },
+                    { id: 33, src: 'image/27 ferma.jpg', title: '', category: 'building' },
+                    { id: 34, src: 'image/29 ferma.jpg', title: '', category: 'building' },
+                    { id: 35, src: 'image/31 ferma.jpg', title: '', category: 'building' },
+                    { id: 36, src: 'image/55 ferma.jpg', title: '', category: 'building' },
+                    { id: 37, src: 'image/45 ferma.jpg', title: '', category: 'building' },
+                    { id: 38, src: 'image/52 ferma.jpg', title: 'Администрация СПК "Восход"', category: 'building' },
+                    { id: 39, src: 'image/58 ferma.jpg', title: '', category: 'building' },
+                    { id: 40, src: 'image/61 ferma.jpg', title: '', category: 'building' },
+                    { id: 41, src: 'image/62 ferma.jpg', title: '', category: 'building' },
+                    { id: 42, src: 'image/67 ferma.jpg', title: '', category: 'building' },
+                    { id: 43, src: 'image/75 ferma.jpg', title: '', category: 'building' },
+                    { id: 44, src: 'image/78 ferma.jpg', title: '', category: 'building' },
+                    { id: 45, src: 'image/81 ferma.jpg', title: '', category: 'building' },
+                    { id: 46, src: 'image/29 ferma.jpg', title: 'Молочное оборудование', category: 'equipment' },
+                    { id: 47, src: 'image/25 ferma.jpg', title: '', category: 'equipment' },
+                    { id: 48, src: 'image/32 ferma.jpg', title: '', category: 'equipment' },
+                    { id: 49, src: 'image/33 ferma.jpg', title: '', category: 'equipment' },
+                    { id: 50, src: 'image/35 ferma.jpg', title: '', category: 'equipment' },
+                    { id: 51, src: 'image/82 ferma.jpg', title: '', category: 'equipment' },
+
+
+            // Добавьте больше фотографий по необходимости
+        ];
+
+        // Элементы DOM
+        const galleryGrid = document.getElementById('galleryGrid');
+        const loadMoreBtn = document.getElementById('loadMore');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDate = document.getElementById('modalDate');
+        const closeBtn = document.querySelector('.close-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        // Текущий индекс для пагинации
+        let currentPage = 1;
+        const photosPerPage = 8;
+
+        function displayPhotos(filteredPhotos, page = 1) {
+            galleryGrid.innerHTML = ''; // Очищаем галерею перед отображением новых фото
+
+            const startIndex = (page - 1) * photosPerPage;
+            const endIndex = startIndex + photosPerPage;
+            const photosToShow = filteredPhotos.slice(startIndex, endIndex);
+
+            photosToShow.forEach(photo => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('gallery-item');
+
+                const img = document.createElement('img');
+                img.src = photo.src;
+                img.alt = photo.title;
+                img.loading = "lazy"; // Ленивая загрузка для оптимизации
+
+                img.addEventListener('click', () => {
+                    openModal(photo);
+                });
+
+                imgContainer.appendChild(img);
+                galleryGrid.appendChild(imgContainer);
+            });
+
+            // Показываем/скрываем кнопку "Загрузить еще"
+            loadMoreBtn.style.display = endIndex < filteredPhotos.length ? 'block' : 'none';
+        }
+
+        function filterPhotos(category) {
+            const filteredPhotos = category === 'all' ? photos : photos.filter(photo => photo.category === category);
+            currentPage = 1; // Сбрасываем страницу при фильтрации
+            displayPhotos(filteredPhotos, currentPage);
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterPhotos(btn.dataset.category);
+            });
+        });
+
+        // Модальное окно
+        function openModal(photo) {
+            modalImage.src = photo.src;
+            modalTitle.textContent = photo.title;
+            modalDate.textContent = photo.date;
+            imageModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+
+            // Устанавливаем текущий индекс для навигации
+            currentImageIndex = photos.findIndex(p => p.id === photo.id);
+        }
+
+        function closeModal() {
+            imageModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Восстанавливаем прокрутку страницы
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Закрытие модального окна при клике вне изображения
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeModal();
+            }
+        });
+
+        // Функция для переключения картинок в модальном окне
+        let currentImageIndex = 0;
+        function showImage(index) {
+            if (index < 0) {
+                currentImageIndex = photos.length - 1;
+            } else if (index >= photos.length) {
+                currentImageIndex = 0;
+            } else {
+                currentImageIndex = index;
+            }
+            openModal(photos[currentImageIndex]);
+        }
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentImageIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showImage(currentImageIndex + 1);
+        });
+
+        // Навигация по клавиатуре
+        document.addEventListener('keydown', (e) => {
+            if (imageModal.style.display === 'block') {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        showImage(currentImageIndex - 1);
+                        break;
+                    case 'ArrowRight':
+                        showImage(currentImageIndex + 1);
+                        break;
+                    case 'Escape':
+                        closeModal();
+                        break;
+                }
+            }
+        });
+
+        // Загрузка дополнительных фотографий
+        loadMoreBtn.addEventListener('click', () => {
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.category;
+            const filteredPhotos = activeFilter === 'all' ? photos : photos.filter(photo => photo.category === activeFilter);
+            currentPage++;
+            displayPhotos(filteredPhotos, currentPage);
+        });
+
+        // Изначальное отображение всех фотографий
+        displayPhotos(photos);
+    </script>
+</body>
+</html>
