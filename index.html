@@ -1773,38 +1773,56 @@
         </div>
     </footer>
 
-    <!-- Модальное окно заказа -->
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h3 id="modalProductName"></h3>
-            <form id="orderForm">
-              <input type="hidden" id="orderProduct" name="product">
-                <div class="form-group">
-                    <label data-translate="order-name">Имя</label>
-                    <input type="text" id="orderName" required>
-                </div>
-                <div class="form-group">
-                    <label data-translate="order-phone">Телефон</label>
-                    <input type="tel" id="orderPhone" required>
-                </div>
-                <div class="form-group">
-                    <label data-translate="order-email">Email</label>
-                    <input type="email" id="orderEmail" required>
-                </div>
-                <div class="form-group">
-                    <label data-translate="order-quantity">Количество (кг)</label>
-                    <input type="number" id="orderQuantity" min="1" value="100" required>
-                </div>
-                <div class="form-group">
-                    <label data-translate="order-comment">Комментарий к заказу</label>
-                    <textarea id="orderComment" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-golden" data-translate="order-submit">Отправить заказ</button>
-                <div id="orderResponse" style="display: none; margin-top: 15px; padding: 10px; border-radius: var(--radius-md);"></div>
-            </form>
-        </div>
-    </div>
+    <script>
+
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        formData.append('name', document.getElementById('orderName').value);
+        formData.append('phone', document.getElementById('orderPhone').value);
+        formData.append('email', document.getElementById('orderEmail').value);
+        formData.append('product', document.getElementById('orderProduct').value);
+        formData.append('quantity', document.getElementById('orderQuantity').value);
+        formData.append('comment', document.getElementById('orderComment').value);
+        
+        const responseDiv = document.getElementById('orderResponse');
+        responseDiv.style.display = 'block';
+        responseDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка заказа...';
+        responseDiv.style.backgroundColor = 'rgba(26, 93, 26, 0.1)';
+        responseDiv.style.color = 'var(--color-primary)';
+        
+        fetch('send_order.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                responseDiv.style.backgroundColor = 'rgba(39, 174, 96, 0.1)';
+                responseDiv.style.color = 'var(--color-primary)';
+                responseDiv.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
+                
+                // Очистка формы через 3 секунды
+                setTimeout(() => {
+                    document.getElementById('orderForm').reset();
+                    document.getElementById('orderModal').style.display = 'none';
+                    responseDiv.style.display = 'none';
+                }, 3000);
+            } else {
+                responseDiv.style.backgroundColor = 'rgba(197, 62, 62, 0.15)';
+                responseDiv.style.color = 'var(--color-accent)';
+                responseDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + data.message;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            responseDiv.style.backgroundColor = 'rgba(197, 62, 62, 0.15)';
+            responseDiv.style.color = 'var(--color-accent)';
+            responseDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Ошибка подключения к серверу';
+        });
+    });
+    </script>
 
     <!-- Подключение скриптов -->
     <script>
@@ -2032,3 +2050,4 @@
     </script>
 </body>
 </html>
+
