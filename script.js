@@ -44,6 +44,11 @@ const products = [
     }
 ];
 
+const API_CONFIG = {
+    ORDER_ENDPOINT: 'send_order.php',
+    METHOD: 'POST'
+};
+
 // Переводы для многоязычности
 const translations = {
     ru: {
@@ -55,18 +60,18 @@ const translations = {
         "nav-news": "Новости",
         "nav-gallery": "Галерея",
         "nav-contacts": "Контакты",
-        
+
         // Герой секция
         "hero-title": "Современное сельское хозяйство",
         "hero-subtitle": "Качественная продукция, передовые технологии и забота об экологии",
         "hero-button": "Узнать больше",
-        
+
         // О нас
         "about-title": "О нас",
         "stat-employees": "сотрудников",
         "stat-years": "лет опыта",
         "stat-quality": "качество",
-        
+
         // Преимущества
         "advantages-title": "Наши преимущества",
         "advantage-1-title": "Производственная мощность",
@@ -81,7 +86,7 @@ const translations = {
         "advantage-5-text": "Использование экологичных технологий и ответственное отношение к природным ресурсам.",
         "advantage-6-title": "Опыт и традиции",
         "advantage-6-text": "Более 20 лет успешной работы в сельскохозяйственной отрасли с сохранением лучших традиций.",
-        
+
         // Быстрый заказ
         "order-title": "Быстрый заказ",
         "order-subtitle": "Выберите продукцию и оформите заказ прямо на сайте",
@@ -90,7 +95,7 @@ const translations = {
         "filter-grain": "Зерновые",
         "filter-dairy": "Молочная продукция",
         "filter-livestock": "Животноводство",
-        
+
         // Новости
         "news-title": "Последние новости",
         "news-1-title": "Уборочная компания закончилась 🌾",
@@ -100,20 +105,20 @@ const translations = {
         "news-3-title": "Современный занавес",
         "news-3-text": "Демонтированы две устаревшие фермы. На освободившемся месте ведется строительство современного навеса для содержания телят.",
         "news-read": "Читать далее",
-        
+
         // Галерея
         "gallery-title": "Наша ферма",
         "gallery-1": "Молочное оборудование",
         "gallery-2": "Ферма СПК Восход",
         "gallery-3": "Работники СПК Восход",
-        
+
         // Контакты
         "contacts-title": "Контакты",
         "contact-address": "Адрес",
         "contact-owner": "Владелец",
         "contact-phone": "Телефон",
         "contact-email": "Почта",
-        
+
         // Подвал
         "footer-about": "Сельскохозяйственный производственный кооператив \"Восход\" - современное предприятие с традициями.",
         "footer-navigation": "Навигация",
@@ -121,7 +126,7 @@ const translations = {
         "footer-newsletter": "Подписка на новости",
         "footer-newsletter-text": "Будьте в курсе всех событий и новостей",
         "footer-subscribe": "Подписаться",
-        
+
         // Модальное окно заказа
         "order-name": "Имя",
         "order-phone": "Телефон",
@@ -142,18 +147,18 @@ const translations = {
         "nav-news": "News",
         "nav-gallery": "Gallery",
         "nav-contacts": "Contacts",
-        
+
         // Hero section
         "hero-title": "Modern Agriculture",
         "hero-subtitle": "Quality products, advanced technologies and care for the environment",
         "hero-button": "Learn More",
-        
+
         // About
         "about-title": "About Us",
         "stat-employees": "employees",
         "stat-years": "years of experience",
         "stat-quality": "quality",
-        
+
         // Advantages
         "advantages-title": "Our Advantages",
         "advantage-1-title": "Production Capacity",
@@ -168,7 +173,7 @@ const translations = {
         "advantage-5-text": "Use of environmentally friendly technologies and responsible attitude towards natural resources.",
         "advantage-6-title": "Experience and Traditions",
         "advantage-6-text": "More than 20 years of successful work in the agricultural industry while preserving the best traditions.",
-        
+
         // Quick Order
         "order-title": "Quick Order",
         "order-subtitle": "Select products and place an order directly on the website",
@@ -177,7 +182,7 @@ const translations = {
         "filter-grain": "Grains",
         "filter-dairy": "Dairy Products",
         "filter-livestock": "Livestock",
-        
+
         // News
         "news-title": "Latest News",
         "news-1-title": "Harvest campaign has ended 🌾",
@@ -187,20 +192,20 @@ const translations = {
         "news-3-title": "Modern curtain",
         "news-3-text": "Two outdated farms have been dismantled. Construction of a modern canopy for keeping calves is underway on the vacated site.",
         "news-read": "Read more",
-        
+
         // Gallery
         "gallery-title": "Our Farm",
         "gallery-1": "Dairy equipment",
         "gallery-2": "SPK Voshod farm",
         "gallery-3": "SPK Voshod employees",
-        
+
         // Contacts
         "contacts-title": "Contacts",
         "contact-address": "Address",
         "contact-owner": "Owner",
         "contact-phone": "Phone",
         "contact-email": "Email",
-        
+
         // Footer
         "footer-about": "Agricultural production cooperative \"Voshod\" is a modern enterprise with traditions.",
         "footer-navigation": "Navigation",
@@ -208,7 +213,7 @@ const translations = {
         "footer-newsletter": "Newsletter",
         "footer-newsletter-text": "Stay up to date with all events and news",
         "footer-subscribe": "Subscribe",
-        
+
         // Order Modal
         "order-name": "Name",
         "order-phone": "Phone",
@@ -229,31 +234,31 @@ let currentLang = 'ru';
 document.addEventListener('DOMContentLoaded', function() {
     // Инициализация темы
     initTheme();
-    
+
     // Инициализация перевода
     initTranslations();
-    
+
     // Инициализация фильтров и поиска
     initFilters();
-    
+
     // Инициализация кнопок заказа
     initOrderButtons();
-    
+
     // Инициализация модального окна
     initModal();
-    
+
     // Инициализация мобильного меню
     initMobileMenu();
-    
+
     // Инициализация анимаций при скролле
     initScrollAnimations();
-    
+
     // Инициализация копирования контактов
     initCopyButtons();
-    
+
     // Инициализация плавной прокрутки
     initSmoothScroll();
-    
+
     // Инициализация формы подписки
     initNewsletter();
 });
@@ -262,25 +267,25 @@ document.addEventListener('DOMContentLoaded', function() {
 function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
     const htmlElement = document.documentElement;
-    
+
     // Загрузка сохраненной темы
     const savedTheme = localStorage.getItem('theme') || 'light';
     htmlElement.setAttribute('data-theme', savedTheme);
-    
+
     // Обновление иконки
     const icon = themeToggle.querySelector('i');
     icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-    
+
     // Обработчик переключения темы
     themeToggle.addEventListener('click', function() {
         const currentTheme = htmlElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
+
         htmlElement.setAttribute('data-theme', newTheme);
-        
+
         // Обновляем иконку
         icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-        
+
         // Сохраняем в localStorage
         localStorage.setItem('theme', newTheme);
     });
@@ -291,7 +296,7 @@ function initTranslations() {
     // Загрузка сохраненного языка
     const savedLang = localStorage.getItem('language') || 'ru';
     currentLang = savedLang;
-    
+
     // Применение переводов
     applyTranslations();
 }
@@ -304,7 +309,7 @@ function applyTranslations() {
             element.textContent = translations[currentLang][key];
         }
     });
-    
+
     // Обновление плейсхолдера поиска
     const searchInput = document.getElementById('productSearch');
     if (searchInput) {
@@ -321,15 +326,15 @@ function initFilters() {
             document.querySelectorAll('.category-filter').forEach(f => {
                 f.classList.remove('active');
             });
-            
+
             // Добавляем активный класс текущему фильтру
             this.classList.add('active');
-            
+
             const category = this.getAttribute('data-category');
             filterProducts(category);
         });
     });
-    
+
     // Поиск по продукции
     const searchInput = document.getElementById('productSearch');
     if (searchInput) {
@@ -337,7 +342,7 @@ function initFilters() {
             const searchTerm = this.value.toLowerCase();
             const activeFilter = document.querySelector('.category-filter.active');
             const category = activeFilter ? activeFilter.getAttribute('data-category') : 'all';
-            
+
             filterProducts(category, searchTerm);
         });
     }
@@ -346,25 +351,25 @@ function initFilters() {
 // Фильтрация продукции
 function filterProducts(category = 'all', searchTerm = '') {
     const productCards = document.querySelectorAll('.product-card');
-    
+
     productCards.forEach(card => {
         const productName = card.querySelector('h3').textContent.toLowerCase();
         const productDesc = card.querySelector('p').textContent.toLowerCase();
-        
+
         let matchesCategory = true;
         let matchesSearch = true;
-        
+
         // Проверка категории
         if (category !== 'all') {
             const productCategory = getProductCategoryByName(productName);
             matchesCategory = productCategory === category;
         }
-        
+
         // Проверка поиска
         if (searchTerm) {
             matchesSearch = productName.includes(searchTerm) || productDesc.includes(searchTerm);
         }
-        
+
         // Показываем/скрываем карточку
         if (matchesCategory && matchesSearch) {
             card.style.display = 'block';
@@ -397,19 +402,19 @@ function initModal() {
     const modal = document.getElementById('orderModal');
     const closeBtn = document.querySelector('.modal-close');
     const orderForm = document.getElementById('orderForm');
-    
+
     // Закрытие модального окна по кнопке
     closeBtn.addEventListener('click', function() {
         closeModal();
     });
-    
+
     // Закрытие модального окна при клике вне его
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             closeModal();
         }
     });
-    
+
     // Обработка отправки формы
     orderForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -423,29 +428,29 @@ function openOrderModal(productName) {
     const modalProductName = document.getElementById('modalProductName');
     const orderProductInput = document.getElementById('orderProduct');
     const orderQuantityInput = document.getElementById('orderQuantity');
-    
+
     // Находим продукт по имени
     const product = products.find(p => p.name === productName);
-    
+
     if (product) {
         // Устанавливаем название продукта
         modalProductName.textContent = productName;
         orderProductInput.value = productName;
-        
+
         // Устанавливаем единицы измерения в плейсхолдере
         const quantityLabel = document.querySelector('[data-translate="order-quantity"]');
         quantityLabel.textContent = `${translations[currentLang]['order-quantity']} (${product.unit})`;
-        
+
         // Устанавливаем минимальное количество в зависимости от продукта
         if (product.unit === 'кг' || product.unit === 'л') {
             orderQuantityInput.min = '1';
             orderQuantityInput.value = '100'; // По умолчанию 100 кг/л для оптовых заказов
         }
     }
-    
+
     // Показываем модальное окно
     modal.style.display = 'flex';
-    
+
     // Добавляем плавное появление
     setTimeout(() => {
         modal.querySelector('.modal-content').style.transform = 'translateY(0)';
@@ -457,11 +462,11 @@ function openOrderModal(productName) {
 function closeModal() {
     const modal = document.getElementById('orderModal');
     const modalContent = modal.querySelector('.modal-content');
-    
+
     // Плавное закрытие
     modalContent.style.transform = 'translateY(50px)';
     modalContent.style.opacity = '0';
-    
+
     setTimeout(() => {
         modal.style.display = 'none';
         // Сброс формы
@@ -477,7 +482,7 @@ function submitOrder() {
     responseDiv.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${translations[currentLang]['order-loading']}`;
     responseDiv.style.backgroundColor = 'rgba(26, 93, 26, 0.1)';
     responseDiv.style.color = 'var(--color-primary)';
-    
+
     // Собираем данные формы
     const formData = {
         name: document.getElementById('orderName').value,
@@ -487,7 +492,7 @@ function submitOrder() {
         quantity: document.getElementById('orderQuantity').value,
         comment: document.getElementById('orderComment').value
     };
-    
+
     // Имитация отправки на сервер (заменить на реальный fetch)
     setTimeout(() => {
         // Валидация простая
@@ -495,7 +500,7 @@ function submitOrder() {
             responseDiv.style.backgroundColor = 'rgba(197, 62, 62, 0.1)';
             responseDiv.style.color = 'var(--color-accent)';
             responseDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${translations[currentLang]['order-success']}`;
-            
+
             // Очистка формы через 2 секунды
             setTimeout(() => {
                 document.getElementById('orderForm').reset();
@@ -513,15 +518,15 @@ function submitOrder() {
 function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const nav = document.getElementById('nav');
-    
+
     mobileMenuBtn.addEventListener('click', function() {
         nav.classList.toggle('active');
-        
+
         // Меняем иконку
         const icon = this.querySelector('i');
         icon.className = nav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
     });
-    
+
     // Закрытие меню при клике на ссылку
     document.querySelectorAll('#nav a').forEach(link => {
         link.addEventListener('click', function() {
@@ -537,7 +542,7 @@ function initScrollAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
     };
-    
+
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -545,7 +550,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     document.querySelectorAll('.scroll-animate').forEach(el => {
         observer.observe(el);
     });
@@ -556,13 +561,13 @@ function initCopyButtons() {
     document.querySelectorAll('.btn-copy').forEach(button => {
         button.addEventListener('click', function() {
             const text = this.getAttribute('data-clipboard-text');
-            
+
             navigator.clipboard.writeText(text).then(() => {
                 // Визуальная обратная связь
                 const originalHTML = this.innerHTML;
                 this.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
                 this.classList.add('copied');
-                
+
                 setTimeout(() => {
                     this.innerHTML = originalHTML;
                     this.classList.remove('copied');
@@ -580,10 +585,10 @@ function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#' || targetId === '#orderModal') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
@@ -598,20 +603,20 @@ function initSmoothScroll() {
 // ===== ИНИЦИАЛИЗАЦИЯ ФОРМЫ ПОДПИСКИ =====
 function initNewsletter() {
     const newsletterForm = document.querySelector('.newsletter-form');
-    
+
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const email = this.querySelector('input[type="email"]').value;
-            
+
             // Валидация email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Пожалуйста, введите корректный email');
                 return;
             }
-            
+
             // Имитация отправки
             alert('Спасибо за подписку!');
             this.reset();
