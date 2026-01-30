@@ -32,7 +32,7 @@ $message = "
 // Заголовки письма
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=utf-8\r\n";
-$headers .= "From: Сайт СПК \"Восход\" <https://egor4ikaa.github.io/spk-redesign>\r\n";
+$headers .= "From: Сайт СПК \"Восход\" <ego7ananiev@gmail.com>\r\n";
 $headers .= "Reply-To: $email\r\n";
 
 // Отправка письма
@@ -47,5 +47,4 @@ if (mail($to, $subject, $message, $headers)) {
         'message' => 'Ошибка при отправке заказа. Пожалуйста, попробуйте позже.'
     ]);
 }
-
 ?>
