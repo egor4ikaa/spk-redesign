@@ -1,5 +1,18 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *'); // Разрешить запросы с любого домена
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// Проверяем метод запроса
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Method Not Allowed. Use POST.'
+    ]);
+    exit;
+}
 
 // Настройки почты
 $to = 'ego7ananiev@gmail.com'; // Почта главного бухгалтера
@@ -12,6 +25,15 @@ $email = htmlspecialchars($_POST['email']);
 $product = htmlspecialchars($_POST['product']);
 $quantity = htmlspecialchars($_POST['quantity']);
 $comment = htmlspecialchars($_POST['comment']);
+
+// Валидация данных
+if (empty($name) || empty($phone) || empty($product) || empty($quantity)) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Пожалуйста, заполните все обязательные поля.'
+    ]);
+    exit;
+}
 
 // Формирование сообщения
 $message = "
@@ -32,7 +54,7 @@ $message = "
 // Заголовки письма
 $headers = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=utf-8\r\n";
-$headers .= "From: Сайт СПК \"Восход\" <ego7ananiev@gmail.com>\r\n";
+$headers .= "From: Сайт СПК \"Восход\" <noreply@spk-voschod.ru>\r\n";
 $headers .= "Reply-To: $email\r\n";
 
 // Отправка письма
