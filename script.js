@@ -349,6 +349,7 @@ function initFilters() {
 }
 
 // Фильтрация продукции
+// Фильтрация продукции
 function filterProducts(category = 'all', searchTerm = '') {
     const productCards = document.querySelectorAll('.product-card');
 
@@ -356,12 +357,13 @@ function filterProducts(category = 'all', searchTerm = '') {
         const productName = card.querySelector('h3').textContent.toLowerCase();
         const productDesc = card.querySelector('p').textContent.toLowerCase();
 
+        // Получаем категорию из массива продуктов
+        const productCategory = getProductCategoryByName(productName);
         let matchesCategory = true;
         let matchesSearch = true;
 
         // Проверка категории
         if (category !== 'all') {
-            const productCategory = getProductCategoryByName(productName);
             matchesCategory = productCategory === category;
         }
 
@@ -383,7 +385,14 @@ function filterProducts(category = 'all', searchTerm = '') {
 
 // Получение категории продукта по имени
 function getProductCategoryByName(productName) {
-    const product = products.find(p => p.name.toLowerCase() === productName.toLowerCase());
+    // Убираем пробелы и приводим к нижнему регистру для точного сравнения
+    const cleanName = productName.trim().toLowerCase();
+
+    const product = products.find(p =>
+        p.name.toLowerCase().includes(cleanName) ||
+        cleanName.includes(p.name.toLowerCase())
+    );
+
     return product ? product.category : 'other';
 }
 

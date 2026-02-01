@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документы и отчетность — СПК "Восход"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="document.css">
+    <link rel="icon" href="image/icon.jpg" type="image/jpg">
+</head>
+<body>
+    <!-- Шапка -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>СПК "ВОСХОД"</span>
+            </div>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#advantages">Преимущества</a></li>
+                    <li><a href="index.html#quick-order">Быстрый заказ</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                    <li><a href="history.html">История</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Герой секция -->
+        <section class="hero" id="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content fade-in">
+                <h1>Документы</h1>
+                <p>Официальные документы и отчетность СПК "Восход"</p>
+                <a href="index.html" class="btn btn-golden">Вернуться на главную</a>
+            </div>
+        </section>
+
+        <!-- Документы -->
+        <section class="documents-section container" id="documents">
+            <div class="section-header">
+                <h2 class="section-title">Официальные документы</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Поиск и фильтры -->
+            <div class="documents-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="documentsSearch" placeholder="Поиск по документам...">
+                </div>
+                <div class="category-filter">
+                    <label for="categoryFilter">Категория:</label>
+                    <select id="categoryFilter">
+                        <option value="all">Все документы</option>
+                        <option value="foundation">Учредительные</option>
+                        <option value="financial">Финансовые</option>
+                        <option value="tax">Налоговые</option>
+                        <option value="reports">Отчетность</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Учредительные документы -->
+            <div class="documents-category scroll-animate">
+                <h3 class="category-title">
+                    <i class="fas fa-file-contract"></i>
+                    Учредительные документы
+                </h3>
+                <div class="documents-grid">
+                    <a href="files/" download class="document-card" data-category="foundation">
+                        <div class="document-icon">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <div class="document-content">
+                            <h3>Устав СПК "Восход"</h3>
+                            <p>Утвержденный устав сельскохозяйственного производственного кооператива</p>
+                            <div class="document-meta">
+                                <span class="document-date">Обновлен: 15.03.2024</span>
+                                <span class="document-size">PDF, 2.4 МБ</span>
+                            </div>
+                        </div>
+                      </a>
+
+                    <a href="files/огрн инн.PDF" download class="document-card" data-category="foundation">
+                        <div class="document-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="document-content">
+                            <h3>Свидетельство ОГРН/ИНН</h3>
+                            <p>Основной государственный регистрационный номер</p>
+                            <div class="document-meta">
+                                <span class="document-date">Выдано: 10.05.2020</span>
+                                <span class="document-size">PDF, 1.1 МБ</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="files/устав.PDF" download class="document-card" data-category="foundation">
+                        <div class="document-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <div class="document-content">
+                            <h3>Устав СПК "Восход"</h3>
+                            <p>Документ на ведение сельскохозяйственной деятельности</p>
+                            <div class="document-meta">
+                                <span class="document-date">Действительны до: 2026</span>
+                                <span class="document-size">PDF, 3.2 МБ</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Финансовая отчетность -->
+            <div class="documents-category scroll-animate delay-1">
+              <h3 class="category-title">
+                  <i class="fas fa-chart-line"></i>
+                  Финансовая отчетность
+              </h3>
+              <div class="documents-grid">
+                  <a href="files/2024fns.PDF" download class="document-card" data-category="financial">
+                      <div class="document-icon">
+                          <i class="fas fa-balance-scale"></i>
+                      </div>
+                      <div class="document-content">
+                          <h3>Бухгалтерский баланс 2024</h3>
+                          <p>Годовой бухгалтерский баланс за 2024 год</p>
+                          <div class="document-meta">
+                              <span class="document-date">Отчетный период: 2024</span>
+                              <span class="document-size">PDF, 1.8 МБ</span>
+                          </div>
+                      </div>
+                  </a>
+
+                  <a href="files/" download class="document-card" data-category="financial">
+                    <div class="document-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="document-content">
+                        <h3>Отчет о финансовых результатах</h3>
+                        <p>Отчет о прибылях и убытках за 2024 год</p>
+                        <div class="document-meta">
+                            <span class="document-date">Отчетный период: 2024</span>
+                            <span class="document-size">PDF, 1.5 МБ</span>
+                        </div>
+                    </div>
+                  </a>
+
+                  <a href="files/" download class="document-card" data-category="financial">
+                      <div class="document-icon">
+                          <i class="fas fa-cash-register"></i>
+                      </div>
+                      <div class="document-content">
+                          <h3>Аудиторское заключение</h3>
+                          <p>Заключение независимого аудитора за 2024 год</p>
+                          <div class="document-meta">
+                              <span class="document-date">Дата: 25.02.2025</span>
+                              <span class="document-size">PDF, 2.1 МБ</span>
+                          </div>
+                      </div>
+                  </a>
+                </div>
+            </div>
+
+            <!-- Налоговая отчетность -->
+            <div class="documents-category scroll-animate delay-2">
+                <h3 class="category-title">
+                    <i class="fas fa-receipt"></i>
+                    Налоговая отчетность
+                </h3>
+
+                <div class="reports-grid">
+                    <div class="report-card" data-category="tax">
+                        <div class="report-header">
+                            <h3>Налоговая отчетность 2025</h3>
+                            <span class="report-badge">ФНС</span>
+                        </div>
+                        <div class="report-content">
+                            <p>Декларации по налогу на прибыль, НДС, страховые взносы</p>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Отчетный год: 2025</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Формат: PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <a href="files/2025fns.PDF" class="btn btn-download">
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="report-card" data-category="tax">
+                        <div class="report-header">
+                            <h3>Налоговая отчетность 2024</h3>
+                            <span class="report-badge">ФНС</span>
+                        </div>
+                        <div class="report-content">
+                            <p>Декларации по налогу на прибыль, НДС, страховые взносы</p>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Отчетный год: 2024</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Формат: PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <a href="files/2024fns.PDF" class="btn btn-download">
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="report-card" data-category="tax">
+                        <div class="report-header">
+                            <h3>Налоговая отчетность 2023</h3>
+                            <span class="report-badge">ФНС</span>
+                        </div>
+                        <div class="report-content">
+                            <p>Декларации по налогу на прибыль, НДС, страховые взносы</p>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Отчетный год: 2023</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Формат: PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <a href="files/2023fns.PDF" class="btn btn-download">
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                    </div>
+                    <div class="report-card" data-category="tax">
+                        <div class="report-header">
+                            <h3>Налоговая отчетность 2022</h3>
+                            <span class="report-badge">ФНС</span>
+                        </div>
+                        <div class="report-content">
+                            <p>Декларации по налогу на прибыль, НДС, страховые взносы</p>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Отчетный год: 2022</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Формат: PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <a href="files/2022fns.PDF" class="btn btn-download">
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                    </div>
+                    <div class="report-card" data-category="tax">
+                        <div class="report-header">
+                            <h3>Налоговая отчетность 2021</h3>
+                            <span class="report-badge">ФНС</span>
+                        </div>
+                        <div class="report-content">
+                            <p>Декларации по налогу на прибыль, НДС, страховые взносы</p>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Отчетный год: 2021</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Формат: PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <a href="files/2021fns.PDF" class="btn btn-download">
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                    </div>
+                    <div class="report-card" data-category="tax">
+                        <div class="report-header">
+                            <h3>Налоговая отчетность 2020</h3>
+                            <span class="report-badge">ФНС</span>
+                        </div>
+                        <div class="report-content">
+                            <p>Декларации по налогу на прибыль, НДС, страховые взносы</p>
+                            <div class="report-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Отчетный год: 2020</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Формат: PDF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <a href="files/2020fns.PDF" class="btn btn-download">
+                                <i class="fas fa-download"></i> Скачать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>СПК "ВОСХОД"</span>
+                </div>
+                <p>Сельскохозяйственный производственный кооператив "Восход" — современное предприятие с традициями.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#advantages">Преимущества</a></li>
+                    <li><a href="index.html#quick-order">Быстрый заказ</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> деревня Абдэс-Урдэс, Октябрьская ул., д.6</li>
+                    <li><i class="fas fa-phone"></i> +7 (341) 386-32-71</li>
+                    <li><i class="fas fa-phone"></i>+7 (904) 314-46-60</li>
+                    <li><i class="fas fa-envelope"></i> spk-voschod@yandex.ru</li>
+                </ul>
+            </div>
+            <div class="footer-documents">
+                <h4>Документы</h4>
+                <ul class="documents-list">
+                    <li>
+                        <a href="files/ustav.pdf" download>
+                            <i class="fas fa-file-pdf"></i>
+                            Устав СПК "Восход"
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/ogrn_inn.pdf" download>
+                            <i class="fas fa-file-contract"></i>
+                            Свидетельство ОГРН/ИНН
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/egrul.pdf" download>
+                            <i class="fas fa-file-signature"></i>
+                            Свидетельство ЕГРЮЛ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/trudovoy_dogovor.pdf" download>
+                            <i class="fas fa-file-contract"></i>
+                            Трудовой договор
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document.html">
+                            <i class="fas fa-file-archive"></i>
+                            Другие документы
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 СПК "Восход". Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Переключение темы
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+                localStorage.setItem('theme', newTheme);
+            });
+
+            // Загрузка сохраненной темы
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            const icon = themeToggle.querySelector('i');
+            icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+
+            // Мобильное меню
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('nav');
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                mobileMenuBtn.querySelector('i').className =
+                    nav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+            });
+
+            // Закрытие меню при клике на ссылку
+            document.querySelectorAll('#nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+
+            // Поиск по документам
+            const searchInput = document.getElementById('documentsSearch');
+            const categoryFilter = document.getElementById('categoryFilter');
+
+            function filterDocuments() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+
+                document.querySelectorAll('.document-card, .report-card').forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'flex';
+                        card.closest('.documents-category').style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Скрываем пустые категории
+                document.querySelectorAll('.documents-category').forEach(category => {
+                    const visibleCards = category.querySelectorAll('.document-card[style*="display: flex"], .report-card[style*="display: flex"]');
+                    if (visibleCards.length === 0) {
+                        category.style.display = 'none';
+                    } else {
+                        category.style.display = 'block';
+                    }
+                });
+            }
+
+            searchInput.addEventListener('input', filterDocuments);
+            categoryFilter.addEventListener('change', filterDocuments);
+
+            // Анимация при скролле
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+            // Плавная прокрутка
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Подсветка активного пункта меню
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('#nav a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

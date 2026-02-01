@@ -12,1309 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <style>
-        /* Вставляем весь CSS код, который я предоставил ранее */
-        /* ===== НЕОБЫЧНЫЕ ШРИФТЫ ===== */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap');
-
-        /* ===== ПЕРЕМЕННЫЕ CSS ===== */
-        :root {
-          /* Светлая тема - Вдохновлено сельским закатом и полями */
-          --color-primary: #1a5d1a; /* Глубокий зеленый цвет поля */
-          --color-secondary: #d4a017; /* Золото пшеницы */
-          --color-accent: #c53e3e; /* Теплый красный - цвет заката */
-          --color-background: #f8f5f0; /* Кремовый, как молоко */
-          --color-surface: #ffffff; /* Чистый белый */
-          --color-text: #2c3e2c; /* Темно-зеленый для текста */
-          --color-text-light: #5a715a; /* Светлый текст */
-
-          /* Необычные градиенты и текстуры */
-          --gradient-primary: linear-gradient(135deg, #1a5d1a 0%, #2e8b57 100%);
-          --gradient-secondary: linear-gradient(135deg, #d4a017 0%, #f7c948 100%);
-          --gradient-accent: linear-gradient(135deg, #c53e3e 0%, #e67e22 100%);
-          --gradient-hero: radial-gradient(circle at 20% 50%, rgba(26, 93, 26, 0.1) 0%, rgba(248, 245, 240, 0) 70%),
-                           radial-gradient(circle at 80% 20%, rgba(212, 160, 23, 0.1) 0%, rgba(248, 245, 240, 0) 60%);
-
-          /* Тени с цветными оттенками */
-          --shadow-sm: 0 2px 8px rgba(26, 93, 26, 0.08);
-          --shadow-md: 0 4px 16px rgba(26, 93, 26, 0.12);
-          --shadow-lg: 0 8px 32px rgba(26, 93, 26, 0.16);
-          --shadow-gold: 0 4px 20px rgba(212, 160, 23, 0.25);
-
-          /* Геометрические узоры (через background-image) */
-          --pattern-dots: radial-gradient(currentColor 1px, transparent 1px);
-          --pattern-lines: repeating-linear-gradient(45deg, transparent, transparent 10px, currentColor 10px, currentColor 11px);
-
-          /* Типография - необычные сочетания */
-          --font-heading: 'Playfair Display', serif; /* Элегантный шрифт с засечками */
-          --font-subheading: 'Unbounded', cursive; /* Современный геометрический */
-          --font-body: 'Manrope', sans-serif; /* Читаемый, но не overused */
-          --font-accent: 'Merriweather Sans', sans-serif; /* Для особых акцентов */
-
-          /* Анимации */
-          --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-          --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-          /* Радиусы границ - органичные формы */
-          --radius-sm: 4px;
-          --radius-md: 12px;
-          --radius-lg: 24px;
-          --radius-organic: 40% 60% 60% 40% / 30% 30% 70% 70%;
-        }
-
-        /* Темная тема - Вдохновлена ночным небом и уютным светом фермы */
-        [data-theme="dark"] {
-          --color-primary: #7eb97e; /* Светлый зеленый - как лунный свет на листьях */
-          --color-secondary: #f0c862; /* Мягкое золото */
-          --color-accent: #ff8c6b; /* Теплый коралловый */
-          --color-background: #121a15; /* Темно-зеленый как ночной лес */
-          --color-surface: #1c261f; /* Поверхность чуть светлее */
-          --color-text: #e8f5e9; /* Светлый текст для контраста */
-          --color-text-light: #a8b8a8;
-
-          --gradient-primary: linear-gradient(135deg, #7eb97e 0%, #4a9c4a 100%);
-          --gradient-secondary: linear-gradient(135deg, #f0c862 0%, #d4a017 100%);
-          --gradient-accent: linear-gradient(135deg, #ff8c6b 0%, #c53e3e 100%);
-          --gradient-hero: radial-gradient(circle at 20% 50%, rgba(126, 185, 126, 0.15) 0%, rgba(18, 26, 21, 0) 70%),
-                           radial-gradient(circle at 80% 20%, rgba(240, 200, 98, 0.1) 0%, rgba(18, 26, 21, 0) 60%),
-                           radial-gradient(circle at 50% 80%, rgba(255, 140, 107, 0.05) 0%, rgba(18, 26, 21, 0) 50%);
-
-          --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-          --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
-          --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
-          --shadow-gold: 0 4px 20px rgba(240, 200, 98, 0.3);
-        }
-
-        /* ===== БАЗОВЫЕ СТИЛИ ===== */
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        html {
-          scroll-behavior: smooth;
-          scroll-padding-top: 80px;
-        }
-
-        body {
-          font-family: var(--font-body);
-          background-color: var(--color-background);
-          color: var(--color-text);
-          line-height: 1.7;
-          transition: var(--transition-smooth);
-          overflow-x: hidden;
-          position: relative;
-        }
-
-        /* Органичный фоновый узор */
-        body::before {
-          content: "";
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: var(--pattern-dots);
-          background-size: 30px 30px;
-          background-position: 0 0;
-          opacity: 0.03;
-          pointer-events: none;
-          z-index: -1;
-        }
-
-        .container {
-          width: 100%;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-        }
-
-        /* ===== ТИПОГРАФИЯ ===== */
-        h1, h2, h3, h4, h5 {
-          font-family: var(--font-heading);
-          font-weight: 700;
-          line-height: 1.3;
-          margin-bottom: 1rem;
-        }
-
-        h1 {
-          font-size: 3.5rem;
-          letter-spacing: -0.5px;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          position: relative;
-          display: inline-block;
-        }
-
-        h2.section-title {
-          font-size: 2.4rem;
-          text-align: center;
-          margin-bottom: 1.5rem;
-          margin-top: 2rem;
-          position: relative;
-          display: inline-block;
-        }
-
-
-
-        h3 {
-          font-size: 1.2rem;
-          font-family: var(--font-subheading);
-          font-weight: 500;
-        }
-
-        p {
-          margin-bottom: 1.5rem;
-          font-size: 1.1rem;
-        }
-
-        a {
-          color: var(--color-primary);
-          text-decoration: none;
-          transition: var(--transition-smooth);
-        }
-
-        a:hover {
-          color: var(--color-accent);
-        }
-
-        /* ===== ШАПКА ===== */
-        #header {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          background-color: rgba(255, 255, 255, 0.92);
-          backdrop-filter: blur(10px);
-          z-index: 1000;
-          box-shadow: var(--shadow-sm);
-          transition: var(--transition-smooth);
-        }
-
-        [data-theme="dark"] #header {
-          background-color: rgba(28, 38, 31, 0.92);
-        }
-
-        .header-container {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 15px 20px;
-        }
-
-        .logo {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-family: var(--font-subheading);
-          font-weight: 600;
-          font-size: 1.4rem;
-          color: var(--color-primary);
-          transition: var(--transition-smooth);
-        }
-
-        .logo i {
-          color: var(--color-secondary);
-          font-size: 1.8rem;
-          animation: pulse-gold 3s infinite alternate;
-        }
-
-        @keyframes pulse-gold {
-          0% {
-            transform: scale(1);
-            text-shadow: 0 0 5px rgba(212, 160, 23, 0.3);
-          }
-          100% {
-            transform: scale(1.1);
-            text-shadow: 0 0 15px rgba(212, 160, 23, 0.6);
-          }
-        }
-
-        .header-controls {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-        }
-
-        .theme-toggle {
-          background: var(--gradient-secondary);
-          border: none;
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          color: white;
-          font-size: 1.2rem;
-          transition: var(--transition-bounce);
-          box-shadow: var(--shadow-gold);
-        }
-
-        .theme-toggle:hover {
-          transform: rotate(30deg) scale(1.1);
-        }
-
-        .mobile-menu-btn {
-          display: none;
-          background: transparent;
-          border: none;
-          font-size: 1.5rem;
-          color: var(--color-primary);
-          cursor: pointer;
-        }
-
-        /* Навигация */
-        #nav ul {
-          display: flex;
-          list-style: none;
-          gap: 30px;
-        }
-
-        #nav a {
-          font-family: var(--font-body);
-          font-weight: 600;
-          font-size: 1rem;
-          position: relative;
-          padding: 5px 0;
-        }
-
-        #nav a::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: var(--gradient-accent);
-          transition: width 0.3s ease;
-        }
-
-        #nav a:hover::after {
-          width: 100%;
-        }
-
-        /* ===== ГЕРОЙ СЕКЦИЯ ===== */
-        .hero {
-          position: relative;
-          height: 100vh;
-          min-height: 700px;
-          display: flex;
-          align-items: center;
-          background: var(--color-background);
-          overflow: hidden;
-        }
-
-        .hero::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: var(--gradient-hero);
-          z-index: 1;
-        }
-
-        /* Органичные фигуры на фоне */
-        .hero::after {
-          content: "";
-          position: absolute;
-          top: 10%;
-          right: 5%;
-          width: 300px;
-          height: 300px;
-          background: var(--gradient-primary);
-          opacity: 0.1;
-          border-radius: var(--radius-organic);
-          animation: float 20s infinite ease-in-out;
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0) rotate(0deg);
-            border-radius: var(--radius-organic);
-          }
-          33% {
-            transform: translateY(-30px) rotate(120deg);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-          66% {
-            transform: translateY(20px) rotate(240deg);
-            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-          }
-        }
-
-        .hero-content {
-          position: relative;
-          z-index: 2;
-          max-width: 800px;
-          animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .hero h1 {
-          font-size: 4rem;
-          margin-bottom: 1.5rem;
-          line-height: 1.2;
-        }
-
-        .hero p {
-          font-size: 1.4rem;
-          color: var(--color-text-light);
-          margin-bottom: 2.5rem;
-          max-width: 600px;
-        }
-
-        /* Кнопки */
-        .btn {
-          display: inline-block;
-          padding: 16px 32px;
-          border-radius: var(--radius-md);
-          font-family: var(--font-subheading);
-          font-weight: 600;
-          font-size: 1.1rem;
-          text-align: center;
-          cursor: pointer;
-          transition: var(--transition-bounce);
-          border: none;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .btn::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-          transition: left 0.7s ease;
-        }
-
-        .btn:hover::before {
-          left: 100%;
-        }
-
-        .btn-golden {
-          background: var(--gradient-secondary);
-          color: #2c3e2c;
-          box-shadow: var(--shadow-gold);
-        }
-
-        .btn-golden:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
-        }
-
-        /* ===== СЕКЦИИ ===== */
-        section {
-          padding: 100px 0;
-          position: relative;
-        }
-
-        .section-header {
-          text-align: center;
-          margin-bottom: 60px;
-        }
-
-        .section-divider {
-          height: 1px;
-          width: 150px;
-          background: var(--gradient-primary);
-          margin: 5px auto;
-          position: relative;
-        }
-
-        .section-divider::before,
-        .section-divider::after {
-          content: "";
-          position: absolute;
-          top: -4px;
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background: var(--color-accent);
-        }
-
-        .section-divider::before {
-          left: 0;
-        }
-
-        .section-divider::after {
-          right: 0;
-        }
-
-        /* Секция "О нас" */
-        .about-content {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
-          align-items: center;
-        }
-
-        .about-img {
-          position: relative;
-          margin-bottom: 50px;
-        }
-
-        .image-frame {
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          box-shadow: var(--shadow-lg);
-          transform: perspective(1000px) rotateY(-5deg);
-          transition: var(--transition-smooth);
-        }
-
-        .image-frame:hover {
-          transform: perspective(1000px) rotateY(0deg);
-        }
-
-        .image-frame img {
-          width: 100%;
-          height: auto;
-          display: block;
-          transition: transform 0.8s ease;
-        }
-
-        .image-frame:hover img {
-          transform: scale(1.05);
-        }
-
-        .about-text {
-          font-size: 2rem;
-        }
-
-        .stats {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-          margin-top: 40px;
-          margin-bottom: 30px;
-        }
-
-        .stat-item {
-          text-align: center;
-          padding: 20px;
-          background: var(--color-surface);
-          border-radius: var(--radius-md);
-          box-shadow: var(--shadow-sm);
-          transition: var(--transition-smooth);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .stat-item::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 4px;
-          background: var(--gradient-accent);
-        }
-
-        .stat-item:hover {
-          transform: translateY(-20px);
-          box-shadow: var(--shadow-md);
-        }
-
-        .stat-number {
-          font-family: var(--font-subheading);
-          font-size: 2.0rem;
-          font-weight: 700;
-          background: var(--gradient-primary);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          line-height: 1;
-        }
-
-        .stat-label {
-          font-size: 0.9rem;
-          color: var(--color-text-light);
-          margin-top: 5px;
-        }
-
-        /* Секция преимуществ */
-        .advantages-section {
-          background-color: var(--color-surface);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .advantages-section::before {
-          content: "";
-          position: absolute;
-          top: -100px;
-          right: -100px;
-          width: 300px;
-          height: 300px;
-          background: var(--gradient-secondary);
-          opacity: 0.05;
-          border-radius: var(--radius-organic);
-          animation: rotate 40s infinite linear;
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        .advantages-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 30px;
-        }
-
-        .advantage-card {
-          background: var(--color-surface);
-          padding: 40px 30px;
-          border-radius: var(--radius-lg);
-          box-shadow: var(--shadow-md);
-          transition: var(--transition-bounce);
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-          border: 1px solid rgba(26, 93, 26, 0.1);
-        }
-
-        .advantage-card::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: var(--gradient-primary);
-          opacity: 0;
-          transition: opacity 0.5s ease;
-          z-index: 0;
-        }
-
-        .advantage-card:hover::before {
-          opacity: 0.03;
-        }
-
-        .advantage-card:hover {
-          transform: translateY(-15px);
-          box-shadow: var(--shadow-lg);
-        }
-
-        .advantage-icon {
-          width: 80px;
-          height: 80px;
-          margin: 0 auto 25px;
-          background: var(--gradient-primary);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-          color: white;
-          position: relative;
-          z-index: 1;
-        }
-
-        .advantage-card h3 {
-          margin-bottom: 15px;
-          position: relative;
-          z-index: 1;
-        }
-
-        .advantage-card p {
-          color: var(--color-text-light);
-          position: relative;
-          z-index: 1;
-        }
-
-        /* Секция заказа */
-        .order-controls {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 40px;
-          flex-wrap: wrap;
-          gap: 20px;
-        }
-
-        .search-box {
-          flex: 1;
-          max-width: 400px;
-          position: relative;
-        }
-
-        .search-box i {
-          position: absolute;
-          left: 20px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: var(--color-text-light);
-        }
-
-        .search-box input {
-          width: 100%;
-          padding: 16px 20px 16px 50px;
-          border: 2px solid rgba(26, 93, 26, 0.2);
-          border-radius: var(--radius-md);
-          font-family: var(--font-body);
-          font-size: 1rem;
-          background-color: var(--color-surface);
-          color: var(--color-text);
-          transition: var(--transition-smooth);
-        }
-
-        .search-box input:focus {
-          outline: none;
-          border-color: var(--color-primary);
-          box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.1);
-        }
-
-        .category-filters {
-          display: flex;
-          gap: 15px;
-          flex-wrap: wrap;
-        }
-
-        .category-filter {
-          padding: 12px 24px;
-          background: transparent;
-          border: 2px solid var(--color-primary);
-          border-radius: var(--radius-md);
-          font-family: var(--font-body);
-          font-weight: 600;
-          color: var(--color-primary);
-          cursor: pointer;
-          transition: var(--transition-smooth);
-        }
-
-        .category-filter.active,
-        .category-filter:hover {
-          background: var(--gradient-primary);
-          color: white;
-          border-color: transparent;
-        }
-
-        .products-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: 30px;
-        }
-
-        .product-card {
-          background: var(--color-surface);
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          box-shadow: var(--shadow-md);
-          transition: var(--transition-smooth);
-          position: relative;
-        }
-
-        .product-card:hover {
-          transform: translateY(-10px);
-          box-shadow: var(--shadow-lg);
-        }
-
-        .product-img {
-          height: 200px;
-          overflow: hidden;
-        }
-
-        .product-img img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.8s ease;
-        }
-
-        .product-card:hover .product-img img {
-          transform: scale(1.1);
-        }
-
-        .product-content {
-          padding: 25px;
-        }
-
-        .product-price {
-          font-family: var(--font-subheading);
-          font-size: 1.8rem;
-          font-weight: 700;
-          color: var(--color-accent);
-          margin: 10px 0;
-        }
-
-        /* Секция новостей */
-        .news-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-          gap: 30px;
-        }
-
-        .news-card {
-          background: var(--color-surface);
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          box-shadow: var(--shadow-md);
-          transition: var(--transition-smooth);
-          height: 100%;
-        }
-
-        .news-card:hover {
-          transform: translateY(-10px);
-          box-shadow: var(--shadow-lg);
-        }
-
-        .news-img {
-          height: 220px;
-          background-size: cover;
-          background-position: center;
-          position: relative;
-        }
-
-        .news-img::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: var(--gradient-primary);
-          opacity: 0;
-          transition: opacity 0.5s ease;
-        }
-
-        .news-card:hover .news-img::after {
-          opacity: 0.1;
-        }
-
-        .news-content {
-          padding: 30px;
-        }
-
-        .news-date {
-          display: inline-block;
-          background: var(--gradient-accent);
-          color: white;
-          padding: 6px 15px;
-          border-radius: var(--radius-md);
-          font-size: 0.9rem;
-          font-weight: 600;
-          margin-bottom: 15px;
-        }
-
-        .news-link {
-          display: inline-block;
-          margin-top: 15px;
-          font-weight: 600;
-          color: var(--color-primary);
-          position: relative;
-        }
-
-        .news-link::after {
-          content: "→";
-          margin-left: 8px;
-          transition: transform 0.3s ease;
-        }
-
-        .news-link:hover::after {
-          transform: translateX(5px);
-        }
-
-        /* Галерея */
-        .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 25px;
-        }
-
-        .gallery-item {
-          position: relative;
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          height: 300px;
-          box-shadow: var(--shadow-md);
-          transition: var(--transition-smooth);
-        }
-
-        .gallery-item:hover {
-          transform: scale(1.03);
-          box-shadow: var(--shadow-lg);
-        }
-
-        .gallery-img {
-          width: 100%;
-          height: 100%;
-        }
-
-        .gallery-img img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.8s ease;
-        }
-
-        .gallery-item:hover .gallery-img img {
-          transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          padding: 30px;
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-          color: white;
-          transform: translateY(20px);
-          opacity: 0;
-          transition: var(--transition-smooth);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-          transform: translateY(0);
-          opacity: 1;
-        }
-
-        /* Контакты */
-        .contacts-content {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 60px;
-        }
-
-        .contact-item {
-          display: flex;
-          gap: 20px;
-          margin-bottom: 30px;
-          align-items: flex-start;
-        }
-
-        .contact-icon {
-          width: 60px;
-          height: 60px;
-          background: var(--gradient-primary);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 1.5rem;
-          flex-shrink: 0;
-        }
-
-        .contact-text h4 {
-          margin-bottom: 5px;
-          color: var(--color-primary);
-        }
-
-        .social-links {
-          display: flex;
-          gap: 15px;
-          margin-top: 30px;
-        }
-
-        .social-link {
-          width: 50px;
-          height: 50px;
-          background: var(--color-surface);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.3rem;
-          color: var(--color-primary);
-          transition: var(--transition-smooth);
-          box-shadow: var(--shadow-sm);
-        }
-
-        .social-link:hover {
-          background: var(--gradient-primary);
-          color: white;
-          transform: translateY(-5px);
-        }
-
-        #map-container {
-          height: 400px;
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          box-shadow: var(--shadow-md);
-        }
-
-        /* Подвал */
-        footer {
-          background: var(--color-surface);
-          padding: 60px 0 0;
-          margin-top: 60px;
-          border-top: 5px solid;
-          border-image: var(--gradient-primary) 1;
-        }
-
-        .footer-container {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 40px;
-          margin-bottom: 40px;
-        }
-
-        .footer-logo {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-family: var(--font-subheading);
-          font-weight: 600;
-          font-size: 1.4rem;
-          color: var(--color-primary);
-          margin-bottom: 20px;
-        }
-
-        .footer-links h4 {
-          margin-bottom: 20px;
-          color: var(--color-primary);
-          position: relative;
-          padding-bottom: 10px;
-        }
-
-        .footer-links h4::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 40px;
-          height: 3px;
-          background: var(--color-accent);
-        }
-
-        .footer-links ul {
-          list-style: none;
-        }
-
-        .footer-links li {
-          margin-bottom: 12px;
-        }
-
-        .footer-links i {
-          margin-right: 10px;
-          color: var(--color-secondary);
-        }
-
-        .newsletter-form {
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-          margin-top: 20px;
-        }
-
-        .newsletter-form input {
-          padding: 14px 20px;
-          border: 2px solid rgba(26, 93, 26, 0.2);
-          border-radius: var(--radius-md);
-          font-family: var(--font-body);
-          background-color: var(--color-background);
-          color: var(--color-text);
-          transition: var(--transition-smooth);
-        }
-
-        .newsletter-form input:focus {
-          outline: none;
-          border-color: var(--color-primary);
-        }
-
-        .newsletter-form button {
-          padding: 14px 20px;
-          background: var(--gradient-primary);
-          color: white;
-          border: none;
-          border-radius: var(--radius-md);
-          font-family: var(--font-body);
-          font-weight: 600;
-          cursor: pointer;
-          transition: var(--transition-smooth);
-        }
-
-        .newsletter-form button:hover {
-          transform: translateY(-3px);
-          box-shadow: var(--shadow-md);
-        }
-
-        .copyright {
-          text-align: center;
-          padding: 20px 0;
-          border-top: 1px solid rgba(26, 93, 26, 0.1);
-          color: var(--color-text-light);
-          font-size: 0.9rem;
-        }
-
-        /* Модальное окно */
-        .modal {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.7);
-          z-index: 2000;
-          align-items: center;
-          justify-content: center;
-          animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        .modal-content {
-          background: var(--color-surface);
-          width: 90%;
-          max-width: 500px;
-          border-radius: var(--radius-lg);
-          padding: 40px;
-          position: relative;
-          box-shadow: var(--shadow-lg);
-          animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .modal-close {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          background: transparent;
-          border: none;
-          font-size: 2rem;
-          color: var(--color-text-light);
-          cursor: pointer;
-          transition: var(--transition-smooth);
-          line-height: 1;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-        }
-
-        .modal-close:hover {
-          background-color: rgba(197, 62, 62, 0.1);
-          color: var(--color-accent);
-        }
-
-        .form-group {
-          margin-bottom: 20px;
-        }
-
-        .form-group label {
-          display: block;
-          margin-bottom: 8px;
-          font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-          width: 100%;
-          padding: 14px 20px;
-          border: 2px solid rgba(26, 93, 26, 0.2);
-          border-radius: var(--radius-md);
-          font-family: var(--font-body);
-          background-color: var(--color-background);
-          color: var(--color-text);
-          transition: var(--transition-smooth);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-          outline: none;
-          border-color: var(--color-primary);
-          box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.1);
-        }
-
-        /* Анимации при скролле */
-        .scroll-animate {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .scroll-animate.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-        .delay-5 { transition-delay: 0.5s; }
-
-        /* Медиа-запросы для адаптивности */
-        @media (max-width: 992px) {
-          .advantages-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .about-content,
-          .contacts-content {
-            grid-template-columns: 1fr;
-          }
-
-          .footer-container {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          h1 {
-            font-size: 3rem;
-          }
-
-          h2.section-title {
-            font-size: 2.4rem;
-          }
-        }
-        .btn-copy {
-          background: transparent;
-          border: 1px solid var(--color-primary);
-          color: var(--color-primary);
-          padding: 6px 12px;
-          border-radius: var(--radius-md);
-          font-size: 0.85rem;
-          cursor: pointer;
-          transition: var(--transition-smooth);
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          margin-top: 8px;
-        }
-
-        .btn-copy:hover {
-          background: var(--color-primary);
-          color: white;
-          transform: translateY(-2px);
-        }
-
-        .btn-copy.copied {
-          background: var(--gradient-accent);
-          color: white;
-          border-color: transparent;
-        }
-
-        .contact-value {
-          margin-bottom: 5px;
-        }
-
-        @media (max-width: 768px) {
-          .header-container {
-            flex-wrap: wrap;
-          }
-
-          .mobile-menu-btn {
-            display: block;
-          }
-
-          #nav {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background-color: var(--color-surface);
-            padding: 20px;
-            box-shadow: var(--shadow-md);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-smooth);
-          }
-
-          #nav.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-          }
-
-          #nav ul {
-            flex-direction: column;
-            gap: 15px;
-          }
-
-          .hero h1 {
-            font-size: 2.5rem;
-          }
-
-          .hero p {
-            font-size: 1.2rem;
-          }
-
-          .advantages-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .order-controls {
-            flex-direction: column;
-            align-items: stretch;
-          }
-
-          .search-box {
-            max-width: 100%;
-          }
-
-          .category-filters {
-            justify-content: center;
-          }
-
-          .news-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        @media (max-width: 576px) {
-          .footer-container {
-            grid-template-columns: 1fr;
-          }
-
-          .stats {
-            grid-template-columns: 1fr;
-          }
-
-          section {
-            padding: 60px 0;
-          }
-
-          .hero {
-            min-height: 600px;
-            height: auto;
-            padding: 100px 0;
-          }
-        }
-    </style>
+    <link rel='stylesheet' href='style.css'>
+    <link rel="icon" href="image/icon.jpg" type="image/jpg">
 </head>
 <body>
     <!-- Шапка -->
@@ -1325,36 +24,32 @@
                 <i class="fas fa-leaf"></i>
                 <span>СПК "ВОСХОД"</span>
             </div>
-
             <!-- Контролы в шапке -->
             <div class="header-controls">
-
                 <!-- Кнопка темы -->
                 <button class="theme-toggle" id="themeToggle" title="Переключить тему">
                     <i class="fas fa-moon"></i>
                 </button>
-
                 <!-- Мобильная кнопка меню -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-
             <!-- Навигация -->
             <nav id="nav">
                 <ul>
-                    <li><a href="#hero" data-translate="nav-home">Главная</a></li>
                     <li><a href="#about" data-translate="nav-about">О нас</a></li>
                     <li><a href="#advantages" data-translate="nav-advantages">Преимущества</a></li>
                     <li><a href="#quick-order" data-translate="nav-order">Быстрый заказ</a></li>
-                    <li><a href="#news" data-translate="nav-news">Новости</a></li>
-                    <li><a href="#gallery" data-translate="nav-gallery">Галерея</a></li>
+                    <li><a href="news.html" data-translate="nav-news">Новости</a></li>
+                    <li><a href="gallery.html" data-translate="nav-gallery">Галерея</a></li>
                     <li><a href="#contacts" data-translate="nav-contacts">Контакты</a></li>
+                    <li><a href="history.html" data-translate="nav-history">История</a></li>
+                    <li><a href="document.html" data-translate="nav-document">Документы</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <!-- Основной контент -->
     <main>
         <!-- Герой секция -->
@@ -1366,25 +61,22 @@
                 <a href="#about" class="btn btn-golden" data-translate="hero-button">Узнать больше</a>
             </div>
         </section>
-
         <!-- О нас -->
         <section class="about-section container" id="about">
             <div class="section-header">
                 <h2 class="section-title" data-translate="about-title">О нас</h2>
                 <div class="section-divider"></div>
             </div>
-
             <div class="about-content">
                 <div class="about-img scroll-animate">
                     <div class="image-frame">
-                        <img src='images/zdanie.jpg' alt="СПК Восход">
+                        <img src='image/zdanie.jpg' alt="СПК Восход">
                     </div>
                 </div>
                 <div class="about-text scroll-animate delay-1">
                     <p>Сельскохозяйственный производственный кооператив (колхоз) "Восход" — динамично развивающееся предприятие под руководством председателя Виктора Ивановича Клековкина, зарегистрированное в 1998 году.</p>
                     <p>Коллектив кооператива под руководством опытного председателя продолжает традиции качественного сельхозпроизводства, заложенные еще при основании предприятия.</p>
                     <p>Колхоз специализируется на животноводстве и молочном производстве.</p>
-
                     <div class="stats">
                         <div class="stat-item">
                             <div class="stat-number">51</div>
@@ -1402,7 +94,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Преимущества -->
         <section class="advantages-section" id="advantages">
             <div class="container">
@@ -1410,7 +101,6 @@
                     <h2 class="section-title" data-translate="advantages-title">Наши преимущества</h2>
                     <div class="section-divider"></div>
                 </div>
-
                 <div class="advantages-grid">
                     <div class="advantage-card scroll-animate">
                         <div class="advantage-icon">
@@ -1419,7 +109,6 @@
                         <h3 data-translate="advantage-1-title">Производственная мощность</h3>
                         <p data-translate="advantage-1-text">Ферма оснащена современным оборудованием и соответствует всем стандартам сельскохозяйственного производства.</p>
                     </div>
-
                     <div class="advantage-card scroll-animate delay-1">
                         <div class="advantage-icon">
                             <i class="fas fa-users"></i>
@@ -1427,7 +116,6 @@
                         <h3 data-translate="advantage-2-title">Рабочие места</h3>
                         <p data-translate="advantage-2-text">В сельскохозяйственном секторе открыты дополнительные вакансии (при текущем штате 51 сотрудник).</p>
                     </div>
-
                     <div class="advantage-card scroll-animate delay-2">
                         <div class="advantage-icon">
                             <i class="fas fa-city"></i>
@@ -1435,7 +123,6 @@
                         <h3 data-translate="advantage-3-title">Развитие экономики</h3>
                         <p data-translate="advantage-3-text">Предприятие несет существенный вклад в экономическое развитие региона через увеличение налоговых отчислений.</p>
                     </div>
-
                     <div class="advantage-card scroll-animate delay-3">
                         <div class="advantage-icon">
                             <i class="fas fa-wine-bottle"></i>
@@ -1443,7 +130,6 @@
                         <h3 data-translate="advantage-4-title">Качество продукции</h3>
                         <p data-translate="advantage-4-text">Современные оборудования позволяют выпускать молочную продукцию премиального качества с улучшенными характеристиками.</p>
                     </div>
-
                     <div class="advantage-card scroll-animate delay-4">
                         <div class="advantage-icon">
                             <i class="fas fa-leaf"></i>
@@ -1451,7 +137,6 @@
                         <h3 data-translate="advantage-5-title">Экологичность</h3>
                         <p data-translate="advantage-5-text">Использование экологичных технологий и ответственное отношение к природным ресурсам.</p>
                     </div>
-
                     <div class="advantage-card scroll-animate delay-5">
                         <div class="advantage-icon">
                             <i class="fas fa-award"></i>
@@ -1462,23 +147,20 @@
                 </div>
             </div>
         </section>
-
         <!-- Быстрый заказ -->
         <section class="order-section" id="quick-order">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title" data-translate="order-title">Быстрый заказ</h2>
                     <div class="section-divider"></div>
-                    <p class="section-subtitle" data-translate="order-subtitle">Выберите продукцию и оформите заказ прямо на сайте</p>
+                    <p class="section-subtitle" data-translate="order-subtitle"></p>
                 </div>
-
                 <!-- Поиск и фильтры -->
                 <div class="order-controls">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="productSearch" placeholder="Поиск продукции..." data-translate="search-placeholder">
+                        <input type="text" id="productSearch" placeholder="Поиск продукции" data-translate="search-placeholder">
                     </div>
-
                     <div class="category-filters">
                         <button class="category-filter active" data-category="all" data-translate="filter-all">Все</button>
                         <button class="category-filter" data-category="grain" data-translate="filter-grain">Зерновые</button>
@@ -1486,13 +168,12 @@
                         <button class="category-filter" data-category="livestock" data-translate="filter-livestock">Животноводство</button>
                     </div>
                 </div>
-
                 <!-- Карточки продукции -->
                 <div class="products-grid" id="productsGrid">
-                    <!-- Карточки добавлены для демонстрации -->
-                    <div class="product-card scroll-animate">
+                    <!-- Пшеница -->
+                    <div class="product-card scroll-animate" data-category="grain">
                         <div class="product-img">
-                            <img src="images/pshenica.jpeg" alt="Пшеница">
+                            <img src="image/pshenica.jpeg" alt="Пшеница">
                         </div>
                         <div class="product-content">
                             <h3>Пшеница</h3>
@@ -1502,9 +183,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card scroll-animate delay-1">
+                    <!-- Молоко -->
+                    <div class="product-card scroll-animate delay-1" data-category="dairy">
                         <div class="product-img">
-                            <img src="images/milk.jpeg" alt="Молоко">
+                            <img src="image/milk.jpeg" alt="Молоко">
                         </div>
                         <div class="product-content">
                             <h3>Молоко</h3>
@@ -1514,9 +196,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card scroll-animate delay-2">
+                    <!-- Сыр -->
+                    <div class="product-card scroll-animate delay-2" data-category="dairy">
                         <div class="product-img">
-                            <img src="images/cheese.jpeg" alt="Сыр">
+                            <img src="image/cheese.jpeg" alt="Сыр">
                         </div>
                         <div class="product-content">
                             <h3>Сыр</h3>
@@ -1526,9 +209,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card scroll-animate delay-3">
+                    <!-- Ячмень -->
+                    <div class="product-card scroll-animate delay-3" data-category="grain">
                         <div class="product-img">
-                            <img src="images/yachmen.jpg" alt="Ячмень">
+                            <img src="image/yachmen.jpg" alt="Ячмень">
                         </div>
                         <div class="product-content">
                             <h3>Ячмень</h3>
@@ -1540,76 +224,71 @@
                 </div>
             </div>
         </section>
-
         <!-- Новости -->
         <section class="news-section container" id="news">
             <div class="section-header">
                 <h2 class="section-title" data-translate="news-title">Последние новости</h2>
                 <div class="section-divider"></div>
             </div>
-
             <div class="news-grid">
-                <div class="news-card scroll-animate">
-                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="news-card scroll-animate" onclick="window.location.href='news.html'">
+                    <!-- Исправлено: добавлен правильный тег img с указанием alt -->
+                    <img class="news-img" src="image/uborka-1.jpg" alt="Уборочная компания завершена">
                     <div class="news-content">
                         <span class="news-date">15.10.2025</span>
                         <h3 data-translate="news-1-title">Уборочная компания закончилась 🌾</h3>
                         <p data-translate="news-1-text">В Удмуртии завершилась уборка зерна, как и на нашем предприятие!</p>
-                        <a href="#" class="news-link" data-translate="news-read">Читать далее</a>
+                        <a href="news.html" class="news-link" data-translate="news-read">Читать далее</a>
                     </div>
                 </div>
-
-                <div class="news-card scroll-animate delay-1">
-                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="news-card scroll-animate delay-1" onclick="window.location.href='news.html'">
+                    <!-- Исправлено: удален атрибут img src из div, добавлен правильный тег img -->
+                    <img class="news-img" src="image/background.png" alt="Ночной режим чтения">
                     <div class="news-content">
                         <span class="news-date">10.10.2025</span>
                         <h3 data-translate="news-2-title">Для любителей ночного чтения 🌙</h3>
                         <p data-translate="news-2-text">Появилась возможность переключения темы на сайте (смотреть фото)</p>
-                        <a href="#" class="news-link" data-translate="news-read">Читать далее</a>
+                        <a href="news.html" class="news-link" data-translate="news-read">Читать далее</a>
                     </div>
                 </div>
-
-                <div class="news-card scroll-animate delay-2">
-                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="news-card scroll-animate delay-2" onclick="window.location.href='news.html'">
+                    <!-- Исправлено: имя файла с пробелом должно быть в кавычках или закодировано -->
+                    <img class="news-img" src="image/66%20ferma.jpg" alt="Современный навес для телят">
                     <div class="news-content">
                         <span class="news-date">05.10.2025</span>
                         <h3 data-translate="news-3-title">Современный занавес</h3>
                         <p data-translate="news-3-text">Демонтированы две устаревшие фермы. На освободившемся месте ведется строительство современного навеса для содержания телят.</p>
-                        <a href="#" class="news-link" data-translate="news-read">Читать далее</a>
+                        <a href="news.html" class="news-link" data-translate="news-read">Читать далее</a>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Галерея -->
         <section class="gallery-section container" id="gallery">
             <div class="section-header">
                 <h2 class="section-title" data-translate="gallery-title">Наша ферма</h2>
                 <div class="section-divider"></div>
             </div>
-
             <div class="gallery-grid">
-                <div class="gallery-item scroll-animate">
+                <div class="gallery-item scroll-animate" onclick="window.location.href='gallery.html'">
                     <div class="gallery-img">
-                        <img src="https://voshodspk.ru/image/milk_apparat.jpg" alt="Молочное оборудование">
+                        <img src="image/milk_apparat.jpg" alt="Молочное оборудование">
                     </div>
                     <div class="gallery-overlay">
                         <p data-translate="gallery-1">Молочное оборудование</p>
                     </div>
                 </div>
-
-                <div class="gallery-item scroll-animate delay-1">
+                <div class="gallery-item scroll-animate delay-1" onclick="window.location.href='gallery.html'">
                     <div class="gallery-img">
-                        <img src="https://voshodspk.ru/image/ferma.jpg" alt="Ферма СПК Восход">
+                        <img src="image/ferma.jpg" alt="Ферма СПК Восход">
                     </div>
                     <div class="gallery-overlay">
                         <p data-translate="gallery-2">Ферма СПК Восход</p>
                     </div>
                 </div>
-
-                <div class="gallery-item scroll-animate delay-2">
+                <div class="gallery-item scroll-animate delay-2" onclick="window.location.href='gallery.html'">
                     <div class="gallery-img">
-                        <img src="https://voshodspk.ru/image/personal-3.jpg" alt="Работники СПК Восход">
+                        <img src="image/personal-3.jpg" alt="Работники СПК Восход">
                     </div>
                     <div class="gallery-overlay">
                         <p data-translate="gallery-3">Работники СПК Восход</p>
@@ -1617,14 +296,12 @@
                 </div>
             </div>
         </section>
-
         <!-- Контакты -->
         <section class="contacts-section container" id="contacts">
           <div class="section-header">
             <h2 class="section-title" data-translate="contacts-title">Контакты</h2>
             <div class="section-divider"></div>
           </div>
-
           <div class="contacts-content">
             <!-- Контактная информация -->
             <div class="contact-info scroll-animate">
@@ -1643,7 +320,6 @@
                   </button>
                 </div>
               </div>
-
               <!-- Владелец -->
               <div class="contact-item">
                 <div class="contact-icon">
@@ -1657,7 +333,6 @@
                   </button>
                 </div>
               </div>
-
               <!-- Телефон -->
               <div class="contact-item">
                 <div class="contact-icon">
@@ -1667,13 +342,12 @@
                   <h4 data-translate="contact-phone">Телефон</h4>
                   <p class="contact-value" data-copy="+7 (341) 386-32-71">
                     +7 (341) 386-32-71
-                  </p>
+                    </p>
                   <button class="btn-copy" data-clipboard-text="+7 (341) 386-32-71">
                     <i class="fas fa-copy"></i>
                   </button>
                 </div>
               </div>
-
               <!-- Почта -->
               <div class="contact-item">
                 <div class="contact-icon">
@@ -1689,7 +363,6 @@
                   </button>
                 </div>
               </div>
-
               <!-- Социальные сети -->
               <div class="social-links">
                 <a href="https://vk.com/public204257075" class="social-link" target="_blank">
@@ -1697,27 +370,23 @@
                 </a>
               </div>
             </div>
-
             <!-- Карта -->
             <div class="contact-map scroll-animate delay-1">
               <div id="map-container"></div>
               <script src="https://api-maps.yandex.ru/2.1/?apikey=9a405274-74e5-4925-9403-e12ddd4fe6d0&amp;lang=ru_RU" type="text/javascript"></script>
                     <script type="text/javascript">
                       ymaps.ready(init);
-
                       function init() {
                           // Координаты СПК "Восход"
                           var myMap = new ymaps.Map("map-container", {
                               center: [56.491220, 52.841043], // Широта, долгота
                               zoom: 17
                           });
-
                           // Добавляем метку
                           var myPlacemark = new ymaps.Placemark([56.491220, 52.841043], {
                               hintContent: 'СПК "Восход"',
                               balloonContent: 'Сельскохозяйственный производственный кооператив "Восход"<br>Октябрьская ул., д.6'
                           });
-
                           myMap.geoObjects.add(myPlacemark);
                     }
                   </script>
@@ -1726,7 +395,6 @@
           </div>
         </section>
     </main>
-
     <!-- Подвал -->
     <footer>
         <div class="container footer-container">
@@ -1737,7 +405,6 @@
                 </div>
                 <p data-translate="footer-about">Сельскохозяйственный производственный кооператив "Восход" - современное предприятие с традициями.</p>
             </div>
-
             <div class="footer-links">
                 <h4 data-translate="footer-navigation">Навигация</h4>
                 <ul>
@@ -1745,34 +412,58 @@
                     <li><a href="#about" data-translate="nav-about">О нас</a></li>
                     <li><a href="#advantages" data-translate="nav-advantages">Преимущества</a></li>
                     <li><a href="#quick-order" data-translate="nav-order">Быстрый заказ</a></li>
-                    <li><a href="#news" data-translate="nav-news">Новости</a></li>
+                    <li><a href="news.html" data-translate="nav-news">Новости</a></li>
                 </ul>
             </div>
-
             <div class="footer-links">
                 <h4 data-translate="footer-contacts">Контакты</h4>
                 <ul>
                     <li><i class="fas fa-map-marker-alt"></i> деревня Абдэс-Урдэс, Октябрьская ул., д.6</li>
                     <li><i class="fas fa-phone"></i> +7 (341) 386-32-71</li>
+                    <li><i class="fas fa-phone"></i>+7 (904) 314-46-60</li>
                     <li><i class="fas fa-envelope"></i> spk-voschod@yandex.ru</li>
                 </ul>
             </div>
-
-            <div class="footer-newsletter">
-                <h4 data-translate="footer-newsletter">Подписка на новости</h4>
-                <p data-translate="footer-newsletter-text">Будьте в курсе всех событий и новостей</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Ваш email" required>
-                    <button type="submit" data-translate="footer-subscribe">Подписаться</button>
-                </form>
+            <div class="footer-documents">
+                <h4>Документы</h4>
+                <ul class="documents-list">
+                    <li>
+                        <a href="files/ustav.pdf" download>
+                            <i class="fas fa-file-pdf"></i>
+                            Устав СПК "Восход"
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/ogrn_inn.pdf" download>
+                            <i class="fas fa-file-contract"></i>
+                            Свидетельство ОГРН/ИНН
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/egrul.pdf" download>
+                            <i class="fas fa-file-signature"></i>
+                            Свидетельство ЕГРЮЛ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/trudovoy_dogovor.pdf" download>
+                            <i class="fas fa-file-contract"></i>
+                            Трудовой договор
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document.html">
+                            <i class="fas fa-file-archive"></i>
+                            Другие документы
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-
         <div class="copyright">
             <p>&copy; 2026 СПК "Восход". Все права защищены.</p>
         </div>
     </footer>
-
     <!-- Модальное окно заказа -->
     <div class="modal" id="orderModal">
         <div class="modal-content">
@@ -1781,32 +472,34 @@
             <form id="orderForm">
               <input type="hidden" id="orderProduct" name="product">
                 <div class="form-group">
-                    <label data-translate="order-name">Имя</label>
-                    <input type="text" id="orderName" required>
+                    <label data-translate="order-name">Имя (ФИО)</label>
+                    <input type="text" id="orderName" required placeholder="Введите полное имя">
+                    <small id="nameError" class="error-message" style="color: red; display: none;">Введите полное имя (не менее 3 символов)</small>
                 </div>
                 <div class="form-group">
                     <label data-translate="order-phone">Телефон</label>
-                    <input type="tel" id="orderPhone" required>
+                    <input type="tel" id="orderPhone" required placeholder="+7 (___) ___-__-__">
+                    <small id="phoneError" class="error-message" style="color: red; display: none;">Введите номер в формате +7 (999) 123-45-67</small>
                 </div>
                 <div class="form-group">
                     <label data-translate="order-email">Email</label>
-                    <input type="email" id="orderEmail" required>
+                    <input type="email" id="orderEmail" required placeholder="example@gmail.com">
+                    <small id="emailError" class="error-message" style="color: red; display: none;">Введите действительный email</small>
                 </div>
                 <div class="form-group">
-                    <label data-translate="order-quantity">Количество (кг)</label>
+                    <label data-translate="order-quantity">Количество (кг/л)</label>
                     <input type="number" id="orderQuantity" min="1" value="100" required>
                 </div>
                 <div class="form-group">
                     <label data-translate="order-comment">Комментарий к заказу</label>
-                    <textarea id="orderComment" rows="3"></textarea>
+                    <textarea id="orderComment" rows="3" maxlength="500"></textarea>
+                    <small id="commentCounter" class="counter" style="color: var(--color-text-light); font-size: 0.9em;">0 / 500</small>
                 </div>
                 <button type="submit" class="btn btn-golden" data-translate="order-submit">Отправить заказ</button>
                 <div id="orderResponse" style="display: none; margin-top: 15px; padding: 10px; border-radius: var(--radius-md);"></div>
             </form>
         </div>
     </div>
-
-
     <!-- Подключение скриптов -->
     <script>
         // Инициализация функционала
@@ -1814,36 +507,29 @@
             // Переключение темы
             const themeToggle = document.getElementById('themeToggle');
             const htmlElement = document.documentElement;
-
             themeToggle.addEventListener('click', function() {
                 const currentTheme = htmlElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'light' ? 'dark' : 'light';
                 htmlElement.setAttribute('data-theme', newTheme);
-
                 // Обновляем иконку
                 const icon = themeToggle.querySelector('i');
                 icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-
                 // Сохраняем в localStorage
                 localStorage.setItem('theme', newTheme);
             });
-
             // Загрузка сохраненной темы
             const savedTheme = localStorage.getItem('theme') || 'light';
             htmlElement.setAttribute('data-theme', savedTheme);
             const icon = themeToggle.querySelector('i');
             icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-
             // Мобильное меню
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const nav = document.getElementById('nav');
-
             mobileMenuBtn.addEventListener('click', function() {
                 nav.classList.toggle('active');
                 mobileMenuBtn.querySelector('i').className =
                     nav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
             });
-
             // Закрытие меню при клике на ссылку
             document.querySelectorAll('#nav a').forEach(link => {
                 link.addEventListener('click', function() {
@@ -1851,7 +537,6 @@
                     mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
                 });
             });
-
             // Переключение языка
             document.querySelectorAll('.lang-btn').forEach(button => {
                 button.addEventListener('click', function() {
@@ -1860,16 +545,13 @@
                     // Здесь должна быть логика смены языка
                 });
             });
-
             // Фильтрация продуктов
             document.querySelectorAll('.category-filter').forEach(filter => {
                 filter.addEventListener('click', function() {
                     document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
                     this.classList.add('active');
-
                     const category = this.getAttribute('data-category');
                     const products = document.querySelectorAll('.product-card');
-
                     products.forEach(product => {
                         if (category === 'all' || product.getAttribute('data-category') === category) {
                             product.style.display = 'block';
@@ -1879,17 +561,14 @@
                     });
                 });
             });
-
             // Поиск продуктов
             const searchInput = document.getElementById('productSearch');
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 const products = document.querySelectorAll('.product-card');
-
                 products.forEach(product => {
                     const title = product.querySelector('h3').textContent.toLowerCase();
                     const description = product.querySelector('p').textContent.toLowerCase();
-
                     if (title.includes(searchTerm) || description.includes(searchTerm)) {
                         product.style.display = 'block';
                     } else {
@@ -1897,7 +576,6 @@
                     }
                 });
             });
-
             // Открытие модального окна заказа
             document.querySelectorAll('.order-btn').forEach(button => {
                 button.addEventListener('click', function() {
@@ -1906,31 +584,128 @@
                     document.getElementById('orderModal').style.display = 'flex';
                 });
             });
-
             // Закрытие модального окна
             document.querySelector('.modal-close').addEventListener('click', function() {
                 document.getElementById('orderModal').style.display = 'none';
             });
-
+            // Валидация формы заказа
+            const orderForm = document.getElementById('orderForm');
+            const orderNameInput = document.getElementById('orderName');
+            const orderPhoneInput = document.getElementById('orderPhone');
+            const orderEmailInput = document.getElementById('orderEmail');
+            const orderCommentInput = document.getElementById('orderComment');
+            const nameError = document.getElementById('nameError');
+            const phoneError = document.getElementById('phoneError');
+            const emailError = document.getElementById('emailError');
+            const commentCounter = document.getElementById('commentCounter');
+            // Подсчет символов в комментарии
+            orderCommentInput.addEventListener('input', function() {
+                const length = this.value.length;
+                commentCounter.textContent = `${length} / 500`;
+            });
+            // Валидация имени
+            orderNameInput.addEventListener('blur', function() {
+                const name = this.value.trim();
+                if (name.length < 3) {
+                    nameError.style.display = 'block';
+                    this.setCustomValidity('Введите полное имя (не менее 3 символов)');
+                } else {
+                    nameError.style.display = 'none';
+                    this.setCustomValidity('');
+                }
+            });
+            // Валидация телефона
+            orderPhoneInput.addEventListener('blur', function() {
+                const phonePattern = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+                const phone = this.value.trim();
+                if (!phonePattern.test(phone)) {
+                    phoneError.style.display = 'block';
+                    this.setCustomValidity('Введите номер в формате +7 (999) 123-45-67');
+                } else {
+                    phoneError.style.display = 'none';
+                    this.setCustomValidity('');
+                }
+            });
+            // Форматирование телефона при вводе
+            orderPhoneInput.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');
+                if (value.startsWith('8')) value = '7' + value.substring(1);
+                if (value.startsWith('7')) value = '+' + value;
+                if (value.length > 12) value = value.substring(0, 12);
+                let formatted = value;
+                if (value.length > 1) {
+                    formatted = value.substring(0, 2) + ' (' + value.substring(2, 5);
+                    if (value.length > 5) {
+                        formatted += ') ' + value.substring(5, 8);
+                        if (value.length > 8) {
+                            formatted += '-' + value.substring(8, 10);
+                            if (value.length > 10) {
+                                formatted += '-' + value.substring(10, 12);
+                            }
+                        }
+                    }
+                }
+                this.value = formatted;
+            });
+            // Валидация email
+            orderEmailInput.addEventListener('blur', function() {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const email = this.value.trim();
+                if (!emailPattern.test(email)) {
+                    emailError.style.display = 'block';
+                    this.setCustomValidity('Введите действительный email');
+                } else {
+                    emailError.style.display = 'none';
+                    this.setCustomValidity('');
+                }
+            });
             // Отправка формы заказа
-            document.getElementById('orderForm').addEventListener('submit', function(e) {
+            orderForm.addEventListener('submit', function(e) {
             e.preventDefault();
-
+            // Повторная валидация перед отправкой
+            let isValid = true;
+            // Имя
+            const name = orderNameInput.value.trim();
+            if (name.length < 3) {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+            // Телефон
+            const phone = orderPhoneInput.value.trim();
+            const phonePattern = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
+            if (!phonePattern.test(phone)) {
+                phoneError.style.display = 'block';
+                isValid = false;
+            } else {
+                phoneError.style.display = 'none';
+            }
+            // Email
+            const email = orderEmailInput.value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+            if (!isValid) {
+                return;
+            }
             const formData = {
-                name: document.getElementById('orderName').value,
-                phone: document.getElementById('orderPhone').value,
-                email: document.getElementById('orderEmail').value,
+                name: name,
+                phone: phone,
+                email: email,
                 product: document.getElementById('orderProduct').value,
                 quantity: document.getElementById('orderQuantity').value,
-                comment: document.getElementById('orderComment').value
+                comment: orderCommentInput.value
             };
-
             const responseDiv = document.getElementById('orderResponse');
             responseDiv.style.display = 'block';
             responseDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка заказа...';
             responseDiv.style.backgroundColor = 'rgba(26, 93, 26, 0.1)';
             responseDiv.style.color = 'var(--color-primary)';
-
             fetch('send_order.php', {
                 method: 'POST',
                 headers: {
@@ -1944,10 +719,10 @@
                     responseDiv.style.backgroundColor = 'rgba(197, 62, 62, 0.1)';
                     responseDiv.style.color = 'var(--color-accent)';
                     responseDiv.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
-
                     // Очистка формы через 2 секунды
                     setTimeout(() => {
-                        document.getElementById('orderForm').reset();
+                        orderForm.reset();
+                        commentCounter.textContent = '0 / 500';
                         document.getElementById('orderModal').style.display = 'none';
                     }, 2000);
                 } else {
@@ -1963,7 +738,6 @@
                 console.error('Error:', error);
             });
             });
-
             // Обновление скрытого поля продукта при открытии модалки
             document.querySelectorAll('.order-btn').forEach(button => {
             button.addEventListener('click', function() {
@@ -1973,13 +747,11 @@
                 document.getElementById('orderModal').style.display = 'flex';
             });
             });
-
             // Анимация при скролле
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -100px 0px'
             };
-
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1987,20 +759,16 @@
                     }
                 });
             }, observerOptions);
-
             document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
-
             // Копирование контактов
             document.querySelectorAll('.btn-copy').forEach(button => {
             button.addEventListener('click', function() {
                 const text = this.getAttribute('data-clipboard-text');
-
                 navigator.clipboard.writeText(text).then(() => {
                     // Визуальная обратная связь
                     const originalText = this.innerHTML;
                     this.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
                     this.classList.add('copied');
-
                     setTimeout(() => {
                         this.innerHTML = originalText;
                         this.classList.remove('copied');
@@ -2016,14 +784,96 @@
                 METHOD: 'POST'
             };
 
+
+            // Обработка формы подписки на новости
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const emailInput = document.getElementById('newsletterEmail');
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    const responseDiv = document.getElementById('newsletterResponse');
+
+                    const email = emailInput.value.trim();
+
+                    // Валидация email
+                    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                        showNewsletterResponse('Пожалуйста, введите корректный email', 'error');
+                        emailInput.focus();
+                        return;
+                    }
+
+                    // Показываем загрузку
+                    const originalText = submitButton.innerHTML;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+                    submitButton.disabled = true;
+
+                    // Отправка данных
+                    const formData = new FormData();
+                    formData.append('email', email);
+
+                    fetch('subscribe_news.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showNewsletterResponse(data.message, 'success');
+                            // Очищаем поле
+                            emailInput.value = '';
+
+                            // Показываем анимацию успеха
+                            submitButton.innerHTML = '<i class="fas fa-check"></i> Успешно!';
+                            setTimeout(() => {
+                                submitButton.innerHTML = originalText;
+                            }, 2000);
+                        } else {
+                            showNewsletterResponse(data.message, 'error');
+                            submitButton.innerHTML = originalText;
+                        }
+                    })
+                    .catch(error => {
+                        showNewsletterResponse('Ошибка подключения. Пожалуйста, попробуйте позже.', 'error');
+                        submitButton.innerHTML = originalText;
+                        console.error('Ошибка подписки:', error);
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                    });
+                });
+            }
+
+            // Функция показа сообщений
+            function showNewsletterResponse(message, type) {
+                const responseDiv = document.getElementById('newsletterResponse');
+                if (!responseDiv) return;
+
+                responseDiv.style.display = 'block';
+                responseDiv.textContent = message;
+
+                if (type === 'success') {
+                    responseDiv.style.backgroundColor = 'rgba(26, 93, 26, 0.15)';
+                    responseDiv.style.color = 'var(--color-primary)';
+                    responseDiv.style.border = '1px solid rgba(26, 93, 26, 0.3)';
+                } else {
+                    responseDiv.style.backgroundColor = 'rgba(197, 62, 62, 0.15)';
+                    responseDiv.style.color = 'var(--color-accent)';
+                    responseDiv.style.border = '1px solid rgba(197, 62, 62, 0.3)';
+                }
+
+                // Автоматическое скрытие через 5 секунд
+                setTimeout(() => {
+                    responseDiv.style.display = 'none';
+                }, 5000);
+            }
             // Плавная прокрутка
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({

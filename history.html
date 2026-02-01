@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История СПК "Восход"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" href="image/icon.jpg" type="image/jpg">
+    <style>
+        /* ===== НЕОБЫЧНЫЕ ШРИФТЫ ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+        /* ===== ПЕРЕМЕННЫЕ CSS ===== */
+        :root {
+          /* Светлая тема - Вдохновлено сельским закатом и полями */
+          --color-primary: #1a5d1a; /* Глубокий зеленый цвет поля */
+          --color-secondary: #d4a017; /* Золото пшеницы */
+          --color-accent: #c53e3e; /* Теплый красный - цвет заката */
+          --color-background: #f8f5f0; /* Кремовый, как молоко */
+          --color-surface: #ffffff; /* Чистый белый */
+          --color-text: #2c3e2c; /* Темно-зеленый для текста */
+          --color-text-light: #5a715a; /* Светлый текст */
+          /* Необычные градиенты и текстуры */
+          --gradient-primary: linear-gradient(135deg, #1a5d1a 0%, #2e8b57 100%);
+          --gradient-secondary: linear-gradient(135deg, #d4a017 0%, #f7c948 100%);
+          --gradient-accent: linear-gradient(135deg, #c53e3e 0%, #e67e22 100%);
+          --gradient-hero: radial-gradient(circle at 20% 50%, rgba(26, 93, 26, 0.1) 0%, rgba(248, 245, 240, 0) 70%),
+                           radial-gradient(circle at 80% 20%, rgba(212, 160, 23, 0.1) 0%, rgba(248, 245, 240, 0) 60%);
+          /* Тени с цветными оттенками */
+          --shadow-sm: 0 2px 8px rgba(26, 93, 26, 0.08);
+          --shadow-md: 0 4px 16px rgba(26, 93, 26, 0.12);
+          --shadow-lg: 0 8px 32px rgba(26, 93, 26, 0.16);
+          --shadow-gold: 0 4px 20px rgba(212, 160, 23, 0.25);
+          /* Геометрические узоры (через background-image) */
+          --pattern-dots: radial-gradient(currentColor 1px, transparent 1px);
+          --pattern-lines: repeating-linear-gradient(45deg, transparent, transparent 10px, currentColor 10px, currentColor 11px);
+          /* Типография - необычные сочетания */
+          --font-heading: 'Playfair Display', serif; /* Элегантный шрифт с засечками */
+          --font-subheading: 'Unbounded', cursive; /* Современный геометрический */
+          --font-body: 'Manrope', sans-serif; /* Читаемый, но не overused */
+          --font-accent: 'Merriweather Sans', sans-serif; /* Для особых акцентов */
+          /* Анимации */
+          --transition-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+          --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          /* Радиусы границ - органичные формы */
+          --radius-sm: 4px;
+          --radius-md: 12px;
+          --radius-lg: 24px;
+          --radius-organic: 40% 60% 60% 40% / 30% 30% 70% 70%;
+        }
+        /* Темная тема - Вдохновлена ночным небом и уютным светом фермы */
+        [data-theme="dark"] {
+          --color-primary: #7eb97e; /* Светлый зеленый - как лунный свет на листьях */
+          --color-secondary: #f0c862; /* Мягкое золото */
+          --color-accent: #ff8c6b; /* Теплый коралловый */
+          --color-background: #121a15; /* Темно-зеленый как ночной лес */
+          --color-surface: #1c261f; /* Поверхность чуть светлее */
+          --color-text: #e8f5e9; /* Светлый текст для контраста */
+          --color-text-light: #a8b8a8;
+          --gradient-primary: linear-gradient(135deg, #7eb97e 0%, #4a9c4a 100%);
+          --gradient-secondary: linear-gradient(135deg, #f0c862 0%, #d4a017 100%);
+          --gradient-accent: linear-gradient(135deg, #ff8c6b 0%, #c53e3e 100%);
+          --gradient-hero: radial-gradient(circle at 20% 50%, rgba(126, 185, 126, 0.15) 0%, rgba(18, 26, 21, 0) 70%),
+                           radial-gradient(circle at 80% 20%, rgba(240, 200, 98, 0.1) 0%, rgba(18, 26, 21, 0) 60%),
+                           radial-gradient(circle at 50% 80%, rgba(255, 140, 107, 0.05) 0%, rgba(18, 26, 21, 0) 50%);
+          --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+          --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+          --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+          --shadow-gold: 0 4px 20px rgba(240, 200, 98, 0.3);
+        }
+        /* ===== БАЗОВЫЕ СТИЛИ ===== */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        html {
+          scroll-behavior: smooth;
+          scroll-padding-top: 80px;
+        }
+        body {
+          font-family: var(--font-body);
+          background-color: var(--color-background);
+          color: var(--color-text);
+          line-height: 1.7;
+          transition: var(--transition-smooth);
+          overflow-x: hidden;
+          position: relative;
+        }
+        /* Органичный фоновый узор */
+        body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: var(--pattern-dots);
+          background-size: 30px 30px;
+          background-position: 0 0;
+          opacity: 0.03;
+          pointer-events: none;
+          z-index: -1;
+        }
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        /* ===== ТИПОГРАФИЯ ===== */
+        h1, h2, h3, h4, h5 {
+          font-family: var(--font-heading);
+          font-weight: 700;
+          line-height: 1.3;
+          margin-bottom: 1rem;
+        }
+        h1 {
+          font-size: 3.5rem;
+          letter-spacing: -0.5px;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          position: relative;
+          display: inline-block;
+        }
+        h2.section-title {
+          font-size: 2.4rem;
+          text-align: center;
+          margin-bottom: 1.5rem;
+          margin-top: 2rem;
+          position: relative;
+          display: inline-block;
+
+        }
+        h3 {
+          font-size: 1.2rem;
+          font-family: var(--font-subheading);
+          font-weight: 500;
+        }
+        p {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+        }
+        a {
+          color: var(--color-primary);
+          text-decoration: none;
+          transition: var(--transition-smooth);
+        }
+        a:hover {
+          color: var(--color-accent);
+        }
+        /* ===== ШАПКА ===== */
+        #header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(10px);
+          z-index: 1000;
+          box-shadow: var(--shadow-sm);
+          transition: var(--transition-smooth);
+        }
+        [data-theme="dark"] #header {
+          background-color: rgba(28, 38, 31, 0.92);
+        }
+        .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 20px;
+        }
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-family: var(--font-subheading);
+          font-weight: 600;
+          font-size: 1.4rem;
+          color: var(--color-primary);
+          transition: var(--transition-smooth);
+        }
+        .logo i {
+          color: var(--color-secondary);
+          font-size: 1.8rem;
+          animation: pulse-gold 3s infinite alternate;
+        }
+        @keyframes pulse-gold {
+          0% {
+            transform: scale(1);
+            text-shadow: 0 0 5px rgba(212, 160, 23, 0.3);
+          }
+          100% {
+            transform: scale(1.1);
+            text-shadow: 0 0 15px rgba(212, 160, 23, 0.6);
+          }
+        }
+        .header-controls {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+        .theme-toggle {
+          background: var(--gradient-secondary);
+          border: none;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: white;
+          font-size: 1.2rem;
+          transition: var(--transition-bounce);
+          box-shadow: var(--shadow-gold);
+        }
+        .theme-toggle:hover {
+          transform: rotate(30deg) scale(1.1);
+        }
+        .mobile-menu-btn {
+          display: none;
+          background: transparent;
+          border: none;
+          font-size: 1.5rem;
+          color: var(--color-primary);
+          cursor: pointer;
+        }
+        /* Навигация */
+        #nav ul {
+          display: flex;
+          list-style: none;
+          gap: 30px;
+        }
+        #nav a {
+          font-family: var(--font-body);
+          font-weight: 600;
+          font-size: 1rem;
+          position: relative;
+          padding: 5px 0;
+        }
+        #nav a::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--gradient-accent);
+          transition: width 0.3s ease;
+        }
+        #nav a:hover::after {
+          width: 100%;
+        }
+        /* ===== ГЕРОЙ СЕКЦИЯ ===== */
+        .hero {
+          position: relative;
+          height: 40vh; /* Изменено для страницы истории */
+          min-height: 300px;
+          display: flex;
+          align-items: center;
+          background: var(--color-background);
+          overflow: hidden;
+        }
+        .hero::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--gradient-hero);
+          z-index: 1;
+        }
+        .hero::after {
+          content: "";
+          position: absolute;
+          top: 10%;
+          right: 5%;
+          width: 300px;
+          height: 300px;
+          background: var(--gradient-primary);
+          opacity: 0.1;
+          border-radius: var(--radius-organic);
+          animation: float 20s infinite ease-in-out;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+            border-radius: var(--radius-organic);
+          }
+          33% {
+            transform: translateY(-30px) rotate(120deg);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+          66% {
+            transform: translateY(20px) rotate(240deg);
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+          }
+        }
+        .hero-content {
+          position: relative;
+          z-index: 2;
+          max-width: 800px;
+          animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+          opacity: 0;
+          transform: translateY(30px);
+          margin-top: 20px;
+        }
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .hero h1 {
+          font-size: 3rem; /* Изменено для страницы истории */
+          margin-bottom: 1rem;
+          line-height: 1.2;
+        }
+        .hero p {
+          font-size: 1.2rem;
+          color: var(--color-text-light);
+          margin-bottom: 1.5rem;
+          max-width: 600px;
+        }
+        /* Кнопки */
+        .btn {
+          display: inline-block;
+          padding: 16px 32px;
+          border-radius: var(--radius-md);
+          font-family: var(--font-subheading);
+          font-weight: 600;
+          font-size: 1.1rem;
+          text-align: center;
+          cursor: pointer;
+          transition: var(--transition-bounce);
+          border: none;
+          position: relative;
+          overflow: hidden;
+        }
+        .btn::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.7s ease;
+        }
+        .btn:hover::before {
+          left: 100%;
+        }
+        .btn-golden {
+          background: var(--gradient-secondary);
+          color: #2c3e2c;
+          box-shadow: var(--shadow-gold);
+        }
+        .btn-golden:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(212, 160, 23, 0.4);
+        }
+        /* ===== СЕКЦИИ ===== */
+        section {
+          padding: 200px 0;
+          position: relative;
+        }
+        .section-header {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+        .section-divider {
+          height: 1px;
+          width: 150px;
+          background: var(--gradient-primary);
+          margin: 5px auto;
+          position: relative;
+        }
+        .section-divider::before,
+        .section-divider::after {
+          content: "";
+          position: absolute;
+          top: -4px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: var(--color-accent);
+        }
+        .section-divider::before {
+          left: 0;
+        }
+        .section-divider::after {
+          right: 0;
+        }
+        /* Секция истории */
+        .history-section {
+            padding-top: 20px; /* Дополнительный отступ сверху из-за фиксированного хедера */
+        }
+        .history-content {
+          max-width: 900px;
+          margin: 0 auto;
+          margin-top: -60px;
+        }
+        .history-section h2 {
+          font-size: 1.8rem;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          position: relative;
+          padding-left: 30px;
+        }
+        .history-section h2::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          background: var(--gradient-accent);
+          border-radius: 50%;
+        }
+        .timeline {
+          position: relative;
+          margin: 40px 0;
+          padding-left: 40px;
+        }
+        .timeline::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: var(--gradient-primary);
+          border-radius: var(--radius-sm);
+        }
+        .timeline-item {
+          position: relative;
+          margin-bottom: 40px;
+          padding-left: 30px;
+        }
+        .timeline-item::before { /*кружочки*/
+          content: "";
+          position: absolute;
+          left: -52px; /* 4px (ось) + 20px (точка) + 30px (отступ) */
+          top: 5px;
+          width: 20px;
+          height: 20px;
+          background: var(--gradient-secondary);
+          border: 4px solid var(--color-surface);
+          border-radius: 50%;
+          z-index: 1;
+        }
+        .timeline-year {
+          font-family: var(--font-subheading);
+          font-weight: 700;
+          font-size: 1.4rem;
+          color: var(--color-accent);
+          margin-bottom: 10px;
+        }
+        .timeline-content {
+          background: var(--color-surface);
+          padding: 25px;
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-sm);
+          position: relative;
+        }
+        .timeline-content::after {
+          content: "";
+          position: absolute;
+          left: -20px;
+          top: 20px;
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 20px solid var(--color-surface);
+        }
+        /* Подвал */
+        footer {
+          background: var(--color-surface);
+          padding: 60px 0 0;
+          margin-top: 60px;
+          border-top: 5px solid;
+          border-image: var(--gradient-primary) 1;
+        }
+        .footer-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 40px;
+          margin-bottom: 40px;
+        }
+        .footer-logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-family: var(--font-subheading);
+          font-weight: 600;
+          font-size: 1.4rem;
+          color: var(--color-primary);
+          margin-bottom: 20px;
+        }
+        .footer-links h4 {
+          margin-bottom: 20px;
+          color: var(--color-primary);
+          position: relative;
+          padding-bottom: 10px;
+        }
+        .footer-links h4::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 40px;
+          height: 3px;
+          background: var(--color-accent);
+        }
+        .footer-links ul {
+          list-style: none;
+        }
+        .footer-links li {
+          margin-bottom: 12px;
+        }
+        .footer-links i {
+          margin-right: 10px;
+          color: var(--color-secondary);
+        }
+
+        /* ===== СТИЛИ ДЛЯ БЛОКА ДОКУМЕНТОВ В ФУТЕРЕ ===== */
+        .footer-documents {
+            position: relative;
+        }
+
+        .footer-documents h4 {
+            margin-bottom: 20px;
+            color: var(--color-primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-documents h4::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--color-accent);
+        }
+
+        .footer-documents p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+
+        .documents-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .documents-list li {
+            margin-bottom: 2px;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(26, 93, 26, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .documents-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .documents-list li:hover {
+            transform: translateX(5px);
+            border-bottom-color: var(--color-accent);
+        }
+
+        .documents-list a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            padding: 8px 0;
+        }
+
+        .documents-list a:hover {
+            color: var(--color-accent);
+        }
+
+        .documents-list i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            transition: var(--transition-smooth);
+        }
+
+        .documents-list a:hover i {
+            color: var(--color-accent);
+            transform: scale(1.2);
+        }
+
+        /* Анимация скачивания */
+        @keyframes downloadPulse {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-3px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .documents-list a:active i {
+            animation: downloadPulse 0.3s ease;
+        }
+
+        /* Адаптивность для футера с документами */
+        @media (max-width: 768px) {
+            .footer-documents {
+                margin-top: 20px;
+            }
+
+            .documents-list li {
+                padding: 8px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-documents h4 {
+                font-size: 1.2rem;
+            }
+
+            .documents-list a {
+                font-size: 0.95rem;
+            }
+        }
+        .copyright {
+          text-align: center;
+          padding: 20px 0;
+          border-top: 1px solid rgba(26, 93, 26, 0.1);
+          color: var(--color-text-light);
+          font-size: 0.9rem;
+        }
+        .newsletter-form input {
+          padding: 14px 20px;
+          border: 2px solid rgba(26, 93, 26, 0.2);
+          border-radius: var(--radius-md);
+          font-family: var(--font-body);
+          background-color: var(--color-background);
+          color: var(--color-text);
+          transition: var(--transition-smooth);
+        }
+        .newsletter-form input:focus {
+          outline: none;
+          border-color: var(--color-primary);
+        }
+        .newsletter-form button {
+          padding: 14px 20px;
+          background: var(--gradient-primary);
+          color: white;
+          border: none;
+          border-radius: var(--radius-md);
+          font-family: var(--font-body);
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition-smooth);
+        }
+        .newsletter-form button:hover {
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-md);
+        }
+        /* Модальное окно */
+        .modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 2000;
+          align-items: center;
+          justify-content: center;
+          animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .modal-content {
+          background: var(--color-surface);
+          width: 90%;
+          max-width: 500px;
+          border-radius: var(--radius-lg);
+          padding: 40px;
+          position: relative;
+          box-shadow: var(--shadow-lg);
+          animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .modal-close {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background: transparent;
+          border: none;
+          font-size: 2rem;
+          color: var(--color-text-light);
+          cursor: pointer;
+          transition: var(--transition-smooth);
+          line-height: 1;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+        }
+        .modal-close:hover {
+          background-color: rgba(197, 62, 62, 0.1);
+          color: var(--color-accent);
+        }
+        .form-group {
+          margin-bottom: 20px;
+        }
+        .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 600;
+        }
+        .form-group input,
+        .form-group textarea {
+          width: 100%;
+          padding: 14px 20px;
+          border: 2px solid rgba(26, 93, 26, 0.2);
+          border-radius: var(--radius-md);
+          font-family: var(--font-body);
+          background-color: var(--color-background);
+          color: var(--color-text);
+          transition: var(--transition-smooth);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+          outline: none;
+          border-color: var(--color-primary);
+          box-shadow: 0 0 0 3px rgba(26, 93, 26, 0.1);
+        }
+        /* Анимации при скролле */
+        .scroll-animate {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .scroll-animate.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 992px) {
+          .footer-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          h1 {
+            font-size: 3rem;
+          }
+          h2.section-title {
+            font-size: 2.4rem;
+          }
+        }
+        @media (max-width: 768px) {
+          .header-container {
+            flex-wrap: wrap;
+          }
+          .mobile-menu-btn {
+            display: block;
+          }
+          #nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-surface);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+          }
+          #nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+          }
+          #nav ul {
+            flex-direction: column;
+            gap: 15px;
+          }
+          .hero h1 {
+            font-size: 2.5rem;
+          }
+          .hero p {
+            font-size: 1.2rem;
+          }
+          .timeline {
+            padding-left: 25px;
+          }
+          .timeline::before {
+            left: 10px;
+          }
+          .timeline-item {
+            padding-left: 25px;
+          }
+          .timeline-item::before {
+            left: 6px; /* 10px - 20px/2 + 4px (border) */
+          }
+          .timeline-content::after {
+            display: none;
+          }
+        }
+        @media (max-width: 576px) {
+          .footer-container {
+            grid-template-columns: 1fr;
+          }
+          section {
+            padding: 60px 0;
+          }
+          .hero {
+            min-height: 250px;
+            height: auto;
+            padding: 80px 0;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header id="header">
+        <div class="container header-container">
+            <!-- Логотип -->
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>СПК "ВОСХОД"</span>
+            </div>
+            <!-- Контролы в шапке -->
+            <div class="header-controls">
+                <!-- Кнопка темы -->
+                <button class="theme-toggle" id="themeToggle" title="Переключить тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <!-- Мобильная кнопка меню -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <!-- Навигация -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#advantages">Преимущества</a></li>
+                    <li><a href="index.html#quick-order">Быстрый заказ</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="gallery.html">Галерея</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                    <li><a href="document.html" data-translate="nav-document">Документы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Основной контент -->
+    <main>
+        <!-- Герой секция -->
+        <section class="hero" id="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content fade-in">
+                <h1>История</h1>
+                <p>Путь СПК "Восход" от советского колхоза до современного агропромышленного комплекса</p>
+                <a href="index.html" class="btn btn-golden">Вернуться на главную</a>
+            </div>
+        </section>
+        <!-- История -->
+        <section class="history-section container" id="history">
+            <div class="section-header">
+                <h2 class="section-title">Путь развития предприятия</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="history-content">
+                <div class="history-section">
+                    <h2>Основание и первые годы</h2>
+                    <p>Сельскохозяйственный производственный кооператив "Восход" имеет богатую историю, уходящую корнями в советский период. Кооператив был официально зарегистрирован в 1988 году, но его история начинается значительно раньше.</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1965</div>
+                            <div class="timeline-content">
+                                <p>Образование колхоза "Восход" на базе нескольких мелких хозяйств в рамках политики укрупнения сельскохозяйственных предприятий.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1972</div>
+                            <div class="timeline-content">
+                                <p>Строительство первых крупных животноводческих комплексов и механизированных ферм, что позволило значительно увеличить производство молока и мяса.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">1988</div>
+                            <div class="timeline-content">
+                                <p>Официальная регистрация сельскохозяйственного производственного кооператива "Восход" в новых экономических условиях.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h2>Развитие в постсоветский период</h2>
+                    <p>В сложные 1990-е годы кооперативу удалось сохранить производственные мощности и коллектив благодаря грамотному руководству и адаптации к рыночным условиям.</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1995</div>
+                            <div class="timeline-content">
+                                <p>Модернизация молочного производства, внедрение новых технологий переработки молока. Начало экспортных поставок продукции.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2003</div>
+                            <div class="timeline-content">
+                                <p>Под руководством председателя Виктора Ивановича Клековкина кооператив начинает программу технического перевооружения предприятий.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h2>Современный этап</h2>
+                    <p>Сегодня СПК "Восход" - это динамично развивающееся предприятие, сочетающее традиции качественного сельхозпроизводства с современными технологиями.</p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2010</div>
+                            <div class="timeline-content">
+                                <p>Полная реконструкция животноводческих комплексов, внедрение автоматизированных систем управления производством.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2015</div>
+                            <div class="timeline-content">
+                                <p>Сертификация производства по международным стандартам качества. Расширение ассортимента молочной продукции.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-year">2020</div>
+                            <div class="timeline-content">
+                                <p>Запуск экологически чистого производства с использованием возобновляемых источников энергии. Участие в государственных программах поддержки сельского хозяйства.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-content">
+                                <p>На сегодняшний день коллектив кооператива под руководством опытного председателя продолжает вносить существенный вклад в экономическое развитие региона через увеличение налоговых отчислений и создание рабочих мест, традиции качественного сельхозпроизводства, заложенные еще при основании предприятия.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Подвал -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>СПК "ВОСХОД"</span>
+                </div>
+                <p>Сельскохозяйственный производственный кооператив "Восход" - современное предприятие с традициями.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#advantages">Преимущества</a></li>
+                    <li><a href="index.html#quick-order">Быстрый заказ</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> деревня Абдэс-Урдэс, Октябрьская ул., д.6</li>
+                    <li><i class="fas fa-phone"></i> +7 (341) 386-32-71</li>
+                    <li><i class="fas fa-phone"></i>+7 (904) 314-46-60</li>
+                    <li><i class="fas fa-envelope"></i> spk-voschod@yandex.ru</li>
+                </ul>
+            </div>
+            <div class="footer-documents">
+                <h4>Документы</h4>
+                <ul class="documents-list">
+                    <li>
+                        <a href="files/ustav.pdf" download>
+                            <i class="fas fa-file-pdf"></i>
+                            Устав СПК "Восход"
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/ogrn_inn.pdf" download>
+                            <i class="fas fa-file-contract"></i>
+                            Свидетельство ОГРН/ИНН
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/egrul.pdf" download>
+                            <i class="fas fa-file-signature"></i>
+                            Свидетельство ЕГРЮЛ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="files/trudovoy_dogovor.pdf" download>
+                            <i class="fas fa-file-contract"></i>
+                            Трудовой договор
+                        </a>
+                    </li>
+                    <li>
+                        <a href="document.html">
+                            <i class="fas fa-file-archive"></i>
+                            Другие документы
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 СПК "Восход". Все права защищены.</p>
+        </div>
+    </footer>
+    <!-- Подключение скриптов -->
+    <script>
+        // Инициализация функционала
+        document.addEventListener('DOMContentLoaded', function() {
+            // Переключение темы
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                // Обновляем иконку
+                const icon = themeToggle.querySelector('i');
+                icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+                // Сохраняем в localStorage
+                localStorage.setItem('theme', newTheme);
+            });
+            // Загрузка сохраненной темы
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            const icon = themeToggle.querySelector('i');
+            icon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+
+            // Мобильное меню
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('nav');
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                mobileMenuBtn.querySelector('i').className =
+                    nav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+            });
+            // Закрытие меню при клике на ссылку
+            document.querySelectorAll('#nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+                });
+            });
+
+            // Анимация при скролле
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
+            // Плавная прокрутка
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
